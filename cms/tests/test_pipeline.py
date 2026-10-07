@@ -1,5 +1,6 @@
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import tempfile
@@ -74,6 +75,19 @@ class PublishTests(unittest.TestCase):
         self.root=self.base/'public';self.root.mkdir();self.state=self.base/'private';self.release=self.base/'release'
         self.files={'index.html':'home','sitemap.xml':'sitemap','robots.txt':'robots','404.html':'404','news/new/index.html':'article','assets/cms/test.png':'image'}
     def tearDown(self): self.tmp.cleanup()
+    def test_public_directories_under_private_umask(self):
+        self.release_files()
+        old = os.umask(0o077)
+        try:
+            publish.publish(self.release,self.root,self.state)
+        finally:
+            os.umask(old)
+        for rel in ('news','news/new','assets','assets/cms'):
+            self.assertEqual((self.root/rel).stat().st_mode & 0o777,0o755)
+        self.assertEqual((self.root/'news/new/index.html').stat().st_mode & 0o777,0o644)
+        self.assertEqual(self.state.stat().st_mode & 0o777,0o700)
+        for backup in (self.state/'backups').iterdir():
+            self.assertEqual(backup.stat().st_mode & 0o777,0o700)
     def release_files(self,fixture=False,routes=None):
         site=self.release/'site';site.mkdir(parents=True,exist_ok=True)
         hashes={}
