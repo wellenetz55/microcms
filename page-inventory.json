@@ -1,0 +1,492 @@
+[
+  {
+    "path": "/",
+    "title": "伝わる、その先へ。",
+    "group": ""
+  },
+  {
+    "path": "/services/",
+    "title": "価値を見つけ、<br>成長につなげる。",
+    "group": "OUR SERVICES"
+  },
+  {
+    "path": "/branding/",
+    "title": "隠れた価値を、<br>選ばれる理由へ。",
+    "group": "services"
+  },
+  {
+    "path": "/branding/reason-ai/",
+    "title": "選ばれる理由AI",
+    "group": "services"
+  },
+  {
+    "path": "/branding/forbidden/",
+    "title": "禁断のブランディング®",
+    "group": "services"
+  },
+  {
+    "path": "/branding/jitan/",
+    "title": "時短ブランディング®",
+    "group": "services"
+  },
+  {
+    "path": "/marketing/",
+    "title": "マーケティング事業",
+    "group": ""
+  },
+  {
+    "path": "/marketing/support/",
+    "title": "マーケティング支援",
+    "group": ""
+  },
+  {
+    "path": "/marketing/small-short-term-insurance/",
+    "title": "少額短期保険事業参入支援",
+    "group": ""
+  },
+  {
+    "path": "/marketing/kinqr/",
+    "title": "緊急時情報管理サービス「緊QR」",
+    "group": ""
+  },
+  {
+    "path": "/creative/",
+    "title": "伝わる戦略を、<br>動き出す体験に。",
+    "group": "services"
+  },
+  {
+    "path": "/overview/what_we_do/",
+    "title": "貴社に強みはある。<br>伝わっていないだけ。",
+    "group": "WHY WELLENETZ"
+  },
+  {
+    "path": "/overview/proposal/",
+    "title": "まず、貴社を知ることから。",
+    "group": "PROPOSAL"
+  },
+  {
+    "path": "/branding/approrach/",
+    "title": "発見から、実行・改善まで。<br>一つにつながるブランディング。",
+    "group": "services"
+  },
+  {
+    "path": "/wellenetz-menu/",
+    "title": "その課題は、<br>「伝わり方」で変えられる。",
+    "group": "YOUR CHALLENGE"
+  },
+  {
+    "path": "/case_study/",
+    "title": "価値の発見が、<br>企業の次をつくる。",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_study/ex24/",
+    "title": "地方ならではの強みで大手に対抗する地方不動産会社",
+    "group": "CASE 24"
+  },
+  {
+    "path": "/case_study/ex23/",
+    "title": "食品ではなく成分の認知度を上げたい大手食品メーカー",
+    "group": "CASE 23"
+  },
+  {
+    "path": "/case_study/ex22/",
+    "title": "レッドオーシャンのEC通販市場で見込み客獲得",
+    "group": "CASE 22"
+  },
+  {
+    "path": "/case_study/ex21/",
+    "title": "差別化が難しいと言われる某保険サービスの戦略",
+    "group": "CASE 21"
+  },
+  {
+    "path": "/case_study/ex20/",
+    "title": "素材の品質を打ち出して逆転した子ども服のアパレルメーカー",
+    "group": "CASE 20"
+  },
+  {
+    "path": "/case_study/ex19/",
+    "title": "業績不振で苦しむ地方空港の再建",
+    "group": "CASE 19"
+  },
+  {
+    "path": "/case_study/ex18/",
+    "title": "競合がやらないサービスに特化した美容系チェーン店",
+    "group": "CASE 18"
+  },
+  {
+    "path": "/case_study/ex17/",
+    "title": "売上好調なのに人材流出が止まらない食品サービス",
+    "group": "CASE 17"
+  },
+  {
+    "path": "/case_study/ex16/",
+    "title": "売上好調の食品製造メーカーが次の進む道をアシスト",
+    "group": "CASE 16"
+  },
+  {
+    "path": "/case_study/ex15/",
+    "title": "サービスでは先頭を走るIT企業なのに何故か離職が止まらない",
+    "group": "CASE 15"
+  },
+  {
+    "path": "/case_study/ex14/",
+    "title": "安値競争から脱したメガネチェーン会社の戦略",
+    "group": "CASE 14"
+  },
+  {
+    "path": "/case_study/ex13/",
+    "title": "権威性で悩む公正取引委員会がしたこと",
+    "group": "CASE 13"
+  },
+  {
+    "path": "/case_study/ex12/",
+    "title": "FC加盟店が増えなかったファッション系の企業の改革",
+    "group": "CASE 12"
+  },
+  {
+    "path": "/case_study/ex11/",
+    "title": "中小の旅行代理店が大手に逆転した方法",
+    "group": "CASE 11"
+  },
+  {
+    "path": "/case_study/ex10/",
+    "title": "近隣住民がファンに変わった大きな工場を持つメーカー",
+    "group": "CASE 10"
+  },
+  {
+    "path": "/case_study/ex09/",
+    "title": "大手に属さずIPOまで上り詰めた金融コンサル会社",
+    "group": "CASE 09"
+  },
+  {
+    "path": "/case_study/ex08/",
+    "title": "インナーブランディングでグループ会社の関係値向上",
+    "group": "CASE 08"
+  },
+  {
+    "path": "/case_study/ex07/",
+    "title": "家電量販店の販路から脱して売上が伸びた美容系メーカー",
+    "group": "CASE 07"
+  },
+  {
+    "path": "/case_study/ex06/",
+    "title": "公営競技場のギャンブルイメージを払拭するブランディング",
+    "group": "CASE 06"
+  },
+  {
+    "path": "/case_study/ex05/",
+    "title": "『商品ラインナップ×BtoB』で販路開拓した小売業者",
+    "group": "CASE 05"
+  },
+  {
+    "path": "/case_study/ex04/",
+    "title": "差別化が難しいコンサル業界で一人勝ちした企業",
+    "group": "CASE 04"
+  },
+  {
+    "path": "/case_study/ex03/",
+    "title": "価格競争になってしまった建材メーカーが変えたものは？",
+    "group": "CASE 03"
+  },
+  {
+    "path": "/case_study/ex02/",
+    "title": "後発での逆転劇を起こした医療機器製造メーカー",
+    "group": "CASE 02"
+  },
+  {
+    "path": "/case_study/ex01/",
+    "title": "リブランディングで下剋上した美容向けの卸し会社",
+    "group": "CASE 01"
+  },
+  {
+    "path": "/case_category/real_estate/",
+    "title": "不動産の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/food_manufacturing/",
+    "title": "食品製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/ec/",
+    "title": "EC物販の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/insurance/",
+    "title": "保険の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/apparel/",
+    "title": "アパレルの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/aviation/",
+    "title": "航空の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/service_industry/",
+    "title": "サービス業の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/outsourcing/",
+    "title": "アウトソーシングの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/it_btoc/",
+    "title": "IT企業(BtoC)の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/retail_chain/",
+    "title": "小売チェーンの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/fair_trade_commission/",
+    "title": "公正取引委員会の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/fashion/",
+    "title": "ファッションの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/travel_agency/",
+    "title": "旅行代理店の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/manufacturing/",
+    "title": "製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/financial_services/",
+    "title": "金融サービスの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/fuel_production/",
+    "title": "燃料製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/beauty_manufacturing/",
+    "title": "美容系製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/public_organization/",
+    "title": "公益団体の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/retail/",
+    "title": "輸入雑貨小売の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/consulting/",
+    "title": "コンサルティングの事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/building_materials/",
+    "title": "建材製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/medical_device/",
+    "title": "医療機器製造の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/case_category/manufacturing_wholesaler/",
+    "title": "製造卸の事例",
+    "group": "CASE STUDIES"
+  },
+  {
+    "path": "/overview/",
+    "title": "価値を信じ、<br>可能性をひらく。",
+    "group": "COMPANY"
+  },
+  {
+    "path": "/overview/access/",
+    "title": "お会いできることを、<br>楽しみにしています。",
+    "group": "ACCESS"
+  },
+  {
+    "path": "/overview/history/",
+    "title": "変化の先に、<br>新しい選ばれ方を。",
+    "group": "HISTORY"
+  },
+  {
+    "path": "/inquiry/",
+    "title": "まだ言葉にならない課題も、<br>お聞かせください。",
+    "group": "CONTACT"
+  },
+  {
+    "path": "/inquiry/general/",
+    "title": "総合お問い合わせ",
+    "group": "CONTACT / GENERAL"
+  },
+  {
+    "path": "/inquiry/interview_requests/",
+    "title": "メディアのお問い合わせ",
+    "group": "CONTACT / INTERVIEW REQUESTS"
+  },
+  {
+    "path": "/inquiry/instructor_requests/",
+    "title": "講師ご依頼",
+    "group": "CONTACT / INSTRUCTOR REQUESTS"
+  },
+  {
+    "path": "/inquiry/jv/",
+    "title": "協業・提携のご相談",
+    "group": "CONTACT / JV"
+  },
+  {
+    "path": "/news/",
+    "title": "ニュース・お知らせ",
+    "group": "NEWS"
+  },
+  {
+    "path": "/column/",
+    "title": "視点が変わると、<br>事業が変わる。",
+    "group": "INSIGHTS / COLUMN"
+  },
+  {
+    "path": "/resources/",
+    "title": "ブランドを考える、<br>最初の一歩に。",
+    "group": "FREE RESOURCES"
+  },
+  {
+    "path": "/branding/attracting_branding/",
+    "title": "BtoB集客ブランディング",
+    "group": "services"
+  },
+  {
+    "path": "/branding/branding_for_venture_Investment/",
+    "title": "出資獲得のためのブランディング",
+    "group": "services"
+  },
+  {
+    "path": "/branding/recruitment_branding/",
+    "title": "採用ブランディング",
+    "group": "services"
+  },
+  {
+    "path": "/branding/sns_branding/",
+    "title": "SNSブランディング",
+    "group": "services"
+  },
+  {
+    "path": "/brandingseminar_free/",
+    "title": "無料ブランディングセミナー",
+    "group": "ONLINE SEMINAR"
+  },
+  {
+    "path": "/column/動画「ai活用に躊躇している会社のための利用ガイ/",
+    "title": "動画「AI活用に躊躇している会社のための利用ガイド」を公開しました",
+    "group": "COLUMN"
+  },
+  {
+    "path": "/column/記事「中小企業の皆さん！生成ai凄そう、はもう卒/",
+    "title": "記事「中小企業の皆さん！生成AI凄そう、はもう卒業しましょう」を公開しました",
+    "group": "COLUMN"
+  },
+  {
+    "path": "/column/for_financial/",
+    "title": "金融機関(地方金融機関でも)こそブランディングを行うべき理由",
+    "group": "COLUMN"
+  },
+  {
+    "path": "/column/osaji/",
+    "title": "なぜ群馬の「めっき工場」のコスメが、高級ホテルに選ばれるのか",
+    "group": "COLUMN"
+  },
+  {
+    "path": "/column/shoten/",
+    "title": "書店が半分に減った業界で、なぜ出版社は「増えて」いるのか？",
+    "group": "COLUMN"
+  },
+  {
+    "path": "/cookie-policy/",
+    "title": "Cookieポリシー",
+    "group": "POLICY"
+  },
+  {
+    "path": "/handle_personal_data/",
+    "title": "個人情報の取扱いについて",
+    "group": "POLICY"
+  },
+  {
+    "path": "/news/企業ブランディング基礎に「失敗しない！企業ブ/",
+    "title": "企業ブランディング基礎に「失敗しない！企業ブランディングを依頼するときに絶対押さえるべきポイント」が追加されました",
+    "group": "NEWS"
+  },
+  {
+    "path": "/news/btob_branding_step/",
+    "title": "【更新】BtoB企業が陥る「価格競争」から抜け出すための本質的なブランディングとは？",
+    "group": "NEWS"
+  },
+  {
+    "path": "/news/chimeido_up/",
+    "title": "【更新】知名度が上がらないのは、あなたの会社のせいではない——順序を間違えているだけです",
+    "group": "NEWS"
+  },
+  {
+    "path": "/news/newcolumn09232025/",
+    "title": "コラム「既存顧客5000人を活かす、保険会社設立という新規事業の勝ち筋」が公開されました",
+    "group": "NEWS"
+  },
+  {
+    "path": "/news/printcenter/",
+    "title": "プリントセンター（名刺/封筒/印刷物）のお客様へ",
+    "group": "NEWS"
+  },
+  {
+    "path": "/overview/message/",
+    "title": "ブランディングは、顧客の認識をつくること。",
+    "group": "MESSAGE"
+  },
+  {
+    "path": "/overview/unique_branding/",
+    "title": "ブランディングが向き合う経営課題",
+    "group": "BUSINESS IMPACT"
+  },
+  {
+    "path": "/privacy-policy/",
+    "title": "プライバシーポリシー",
+    "group": "POLICY"
+  },
+  {
+    "path": "/specified_commercial_transactions/",
+    "title": "特定商取引法に関する表示",
+    "group": "POLICY"
+  },
+  {
+    "path": "/sitemap/",
+    "title": "サイトマップ",
+    "group": "SITE MAP"
+  },
+  {
+    "path": "/inquiry/thanks/",
+    "title": "お問い合わせありがとうございます",
+    "group": "THANK YOU"
+  },
+  {
+    "path": "/404/",
+    "title": "ページが見つかりません",
+    "group": "NOT FOUND"
+  }
+]

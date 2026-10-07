@@ -1,0 +1,75 @@
+ベレネッツ：SEO・SNS表示・計測設定の追加
+更新日：2026-10-05
+正式公開先：https://www.wellenetz.co.jp/
+
+追加内容
+・98ページそれぞれに、専用のタイトル・説明文、OGP、X向けカード情報。
+・SNS画像は既存TOP画像を共通使用。24件の事例詳細は各事例画像を使用。
+・正規URL（canonical）。日本語URLはUTF-8でパーセントエンコード。
+・96URLの sitemap.xml。404・送信完了ページは除外。更新日が未管理のためlastmodは付けていません。
+・JSON-LD構造化データ：Organization、WebSite、WebPage、AboutPage、
+  ContactPage、CollectionPage、BreadcrumbList、Article、Service。
+  本文にないレビュー、評価、価格、著者、公開日などは追加していません。
+・GTM-KTW89Qを公開用ページのheadとbody冒頭に設置。
+
+プレビュー用と公開用
+・dist/：プレビュー用。検索エンジン除外（noindex / robots.txtでクロール禁止）、GTMなし。
+・dist-production/：公開用。通常ページの検索登録を許可、GTMあり。
+・どちらも同じデザイン・本文・動画です。プレビューでもOGPと構造化データを確認できます。
+・公開には wellenetz-production.zip の内容をサイトのルートに配置してください。
+  ZIP自体やdist-productionフォルダをURLの下位ディレクトリへ置くのではありません。
+・ソース一式にはプレビュー用distを同梱。公開用は下記コマンドで再生成できます。
+
+更新・再生成
+1. 本文の変更はこれまでどおりbuild.py等を編集。
+2. ページ別のSNSタイトル・説明文・画像は src/seo-pages.json を編集。
+   新しいページを追加する場合、このファイルにも同じURLの項目を追加。
+3. 共通の公開URL・GTM IDは src/site-config.json。
+4. python3 build.py                  → プレビュー用distを更新
+5. python3 build.py --production     → 公開用dist-productionを更新
+6. python3 check_seo.py              → 両方を検証（beautifulsoup4が必要）
+生成自体はPythonの標準ライブラリのみで動作します。
+
+計測について
+現サイトHTMLでGTM-KTW89Qと直接設置のGA4「G-9JF0Q28R0W」を確認。
+公開中GTMコンテナにも同じGA4 IDとsend_page_view=trueの設定を確認したため、
+新サイトではGTM経由に統一し、GA4の直接タグは追加していません。
+GTM管理画面内のタグ・トリガー・コンバージョン設定は変更していません。
+コンテナの公開設定にIDがあることと、実際のイベント発火は別の検証です。
+JS側のGTM起動は正式な公開先のoriginに限定しています。
+公開用のnoscriptは標準のGTM iframeです。ローカル確認にはGTMを含まないdistを使ってください。
+既存サイトで確認した別の直接設置サービス（Microsoft Clarity等）は今回の追加対象外です。
+
+本番公開後に行うこと（今回は未実施）
+1. https://www.wellenetz.co.jp/sitemap.xml が200で取得できることを確認。
+2. robots.txtのSitemap行と、通常ページにnoindexがないことを確認。
+   存在しないURLはホスティング側で404ステータスを返すように設定。
+3. Google Search Consoleの現在のプロパティで「サイトマップ」を開き、
+   sitemap.xml を送信。既存のプロパティがある場合はそのまま利用。
+4. Google Tag AssistantでGTM-KTW89Qの読み込みとGA4発火を確認。
+   GA4のDebugView/リアルタイムで、ページ表示の重複がないことを確認。
+   既存コンバージョンが旧サイトのボタンやフォームを参照している場合は、
+   新しいページの操作に合わせてトリガーを確認・調整。
+5. Googleリッチリザルトテストで本番URLを確認。
+   一部のSchema.org型はリッチリザルト対象ではありません。
+6. SNSの共有プレビューでタイトル・説明・画像を確認。
+
+検証結果
+プレビュー98ページ／本番98ページ、タイトルと説明文はそれぞれ98種類。
+サイトマップ96URL、canonicalとの一致、重複・404・送信完了ページの除外、OGP画像の存在、
+JSON-LD構文・参照・パンくず順序、GTMの設置位置・環境分離を確認。
+GTM初期化処理は本番originのみで1回起動することを模擬環境で確認。
+既存98ページの内部リンク検証もエラーなし。
+本番サイトへのアップロード、Search Consoleへの送信、実際の計測受信、
+Google側のリッチリザルトテストは実施していません。
+構造化データの追加は検索結果の特別表示や掲載順位を保証するものではありません。
+
+参照仕様
+Google：サイトマップの作成と送信
+https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+Google：GTMの設置
+https://support.google.com/tagmanager/answer/14847097
+Google：構造化データ
+https://developers.google.com/search/docs/appearance/structured-data/intro-structured-data
+Open Graph protocol
+https://ogp.me/
