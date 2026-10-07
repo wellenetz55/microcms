@@ -119,10 +119,14 @@ SEO・SNS・計測設定（2026-10-05追加）
 公開後、form.runの4フォームそれぞれにリダイレクトURLを設定してください。
 設定手順：送信完了ページ-設定手順.txt
 
-【2026-10-07 CMS連携追加】
-新着情報・コラムをmicroCMSから静的HTMLと画像へ生成する連携を追加しました。
-GitHubへの配置とActionsのサンプル生成テストが完了しました。
-実APIの認証と公開データの取得・生成も確認済みです。Webhookと本番自動配信は未設定です。
+【2026-10-07 CMS連携：サーバー側HTTPS取得方式】
+新着情報・コラムをmicroCMSから静的HTMLと画像へ生成します。
+GitHub Actionsで生成・検証した公開用ZIPをReleasesへ保存し、エックスサーバーがHTTPSで取得します。
+サーバーへの国外SSH接続は不要です。国外アクセス制限はONを維持しています。
+サーバー標準Python 3.6.8で専用10テストが成功。GitHub/ローカルの全19テストも成功。
+実際の公開用ZIPの取得・検証・ドライランまで成功しました。
+本番反映時の変更予定は102ファイル、CMS記事削除0件。本番ファイルはまだ変更していません。
+サーバーのenabled=false、Cron=OFF。本番反映とmicroCMS Webhookは未有効化です。
 設定手順：cms/設定・運用手順.txt
 実行：python3 cms/pipeline.py --fixture --output .cms-output/demo
 従来のpython3 build.pyは既存記事だけを生成します。CMSの更新にはcms/pipeline.pyを使います。
