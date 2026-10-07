@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import sys
 import tempfile
@@ -42,6 +43,7 @@ class PipelineTests(unittest.TestCase):
 
     def test_full_production_build_with_mock_api(self):
         collections=json.loads((pipeline.ROOT/'cms/fixture.json').read_text())
+        collections['column'][0]['publishedAt']='2026-10-07T16:30:00Z'
         def fetch(url,headers=None):
             if url=='https://images.microcms-assets.io/demo/cover.jpg': return (pipeline.ROOT/'dist/assets/hero.jpg').read_bytes()
             endpoint='news' if '/news?' in url else 'column'
@@ -61,6 +63,20 @@ class PipelineTests(unittest.TestCase):
                 self.assertIn('https://www.wellenetz.co.jp'+route,(site/'sitemap.xml').read_text())
             self.assertIn('cms-demo-news',(site/'index.html').read_text())
             self.assertIn('cms-demo-column',(site/'column/index.html').read_text())
+            home=(site/'index.html').read_text()
+            updates=re.search(r'<section[^>]+id="updates".*?</section>',home,re.S).group()
+            self.assertLess(updates.index('/column/cms-demo-column/'),updates.index('/news/cms-demo-news/'))
+            self.assertIn('2026.10.08',updates)
+            self.assertIn('>COLUMN</span>',updates)
+            self.assertIn('>NEWS</span>',updates)
+            dates=re.findall(r'<time datetime="([^"]+)">',updates)
+            self.assertEqual(len(dates),6)
+            self.assertEqual(dates,sorted(dates,reverse=True))
+            news=(site/'news/index.html').read_text()
+            self.assertIn('2025.09.23',news)
+            self.assertIn('2025.07.09',news)
+            self.assertNotIn('<time></time>',news)
+            self.assertNotIn('公開日未登録',news)
             failed=Path(tmp)/'failed'
             with self.assertRaises(RuntimeError): pipeline.build(failed,fetch=lambda *a: (_ for _ in ()).throw(RuntimeError('network failure')))
             self.assertFalse(failed.exists())
