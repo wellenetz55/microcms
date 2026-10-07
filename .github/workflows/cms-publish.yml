@@ -1,0 +1,80 @@
+name: Publish microCMS to Xserver
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: 'sample: 接続不要の生成テスト / published: microCMS公開記事'
+        type: choice
+        options: [sample, published]
+        default: sample
+        required: true
+  repository_dispatch:
+    types: [microcms_build]
+permissions:
+  contents: read
+concurrency:
+  group: wellenetz-cms-production
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run pipeline tests
+        run: python3 -m unittest discover -s cms/tests -v
+      - name: Fetch published content and build
+        env:
+          MICROCMS_SERVICE_DOMAIN: ${{ vars.MICROCMS_SERVICE_DOMAIN || 'wellenetz' }}
+          MICROCMS_API_KEY: ${{ secrets.MICROCMS_API_KEY }}
+          BUILD_SOURCE: ${{ github.event_name == 'workflow_dispatch' && inputs.source || 'published' }}
+        run: |
+          if [ "$BUILD_SOURCE" = "sample" ]; then
+            python3 cms/pipeline.py --fixture --output cms-output/release
+          else
+            python3 cms/pipeline.py --output cms-output/release
+          fi
+      - name: Save generated files for review or manual upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event_name == 'workflow_dispatch' && inputs.source == 'sample' && 'wellenetz-preview' || 'wellenetz-production' }}
+          path: cms-output/release/
+          retention-days: 7
+          if-no-files-found: error
+  deploy:
+    needs: build
+    if: vars.CMS_DEPLOY_ENABLED == 'true' && (github.event_name != 'workflow_dispatch' || inputs.source == 'published')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment: production
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: wellenetz-production
+          path: cms-output/release
+      - name: Prepare SSH authentication
+        env:
+          PRIVATE_KEY: ${{ secrets.XSERVER_SSH_PRIVATE_KEY }}
+          KNOWN_HOSTS: ${{ secrets.XSERVER_KNOWN_HOSTS }}
+        run: |
+          umask 077
+          printf '%s\n' "$PRIVATE_KEY" > "$RUNNER_TEMP/xserver.key"
+          printf '%s\n' "$KNOWN_HOSTS" > "$RUNNER_TEMP/xserver.known_hosts"
+      - name: Publish verified release
+        env:
+          XSERVER_HOST: ${{ vars.XSERVER_HOST }}
+          XSERVER_USER: ${{ vars.XSERVER_USER }}
+          XSERVER_PUBLIC_DIR: ${{ vars.XSERVER_PUBLIC_DIR }}
+          XSERVER_KEY_FILE: ${{ runner.temp }}/xserver.key
+          XSERVER_KNOWN_HOSTS_FILE: ${{ runner.temp }}/xserver.known_hosts
+        run: python3 cms/deploy.py --release cms-output/release --apply
+      - name: Remove temporary credentials
+        if: always()
+        run: rm -f "$RUNNER_TEMP/xserver.key" "$RUNNER_TEMP/xserver.known_hosts"
