@@ -8,9 +8,9 @@
  エックスサーバーの接続ホスト：sv16214.xserver.jp
  SSHユーザー（サーバーID）：order
  SSH：有効（ユーザー確認済み）
- SSH国外アクセス制限：OFF（ユーザー確認済み）
- SSHのIPアドレス制限：未設定（ユーザー確認済み）
- 公開先候補：/home/order/wellenetz.co.jp/public_html（接続後に確認）
+ SSH国外アクセス制限：OFF（2026-10-07 ユーザー承認後に変更、管理画面で確認）
+ SSHのIPアドレス制限：OFF（2026-10-07 管理画面で確認）
+ 公開先：/home/order/wellenetz.co.jp/public_html（SSHで存在確認済み）
 microCMSのnews（新着情報）・column（コラム）APIを作成済みです。
 両APIにtitle/body/description/coverを設定済み（title/bodyは必須）。
 サイト生成コード・CMS連携コード・画像・動画・ActionsをGitHubへ配置済みです。
@@ -31,12 +31,19 @@ SSH接続口（10022）への到達を確認済み。秘密鍵・パスフレー
 認証・公開先候補・Pythonバージョン・rsyncの有無を確認できます。
 2026-10-07：秘密鍵の復号は成功しています。
 暗号化PEM鍵をSSHエージェントと対応付ける公開鍵ファイルを実行中だけ生成するよう修正済み。
-国外アクセス制限OFF・IPアドレス制限未設定をユーザー確認済みです。
-一部の試行はタイムアウト、到達した試行ではサーバーが公開鍵を受け入れた直後に
-Connection closedとなります。SSHログイン完了前のため、管理画面で接続情報を確認待ちです。
-公開先・Python・rsyncは未確認です。自動配信はfalseのままです。
-最新の確認：https://github.com/wellenetz55/microcms/actions/runs/37562699786
-ホスト鍵は初回取得値を固定しています。別経路との照合は未実施です。
+2026-10-07 管理画面で国外アクセス制限ONを確認し、ユーザー承認後OFFへ変更しました。
+GitHub Actionsから公開鍵認証でのSSHログインに成功しました。
+確認結果：https://github.com/wellenetz55/microcms/actions/runs/37563801180
+公開先 /home/order/wellenetz.co.jp/public_html と rsync が存在します。
+index.htmlあり、index.phpなし、公開先直下の.htaccessなし、公開先はsymlinkではありません。
+標準python3は3.6.8です。配信処理の要件（3.8以上）を満たさないため、
+SSH認証は成功しましたが、要件確認ジョブは失敗しています。
+標準的な配置先を読み取り確認しましたが、Python 3.8以上は検出できませんでした。
+環境確認：https://github.com/wellenetz55/microcms/actions/runs/37563950028
+自動配信の有効化前に、配信プログラムとサーバー実行環境の互換性対応が必要です。
+本番ファイルは変更していません。自動配信はfalseのままです。
+ホスト鍵は初回取得値を固定しています。2026-10-07、管理画面の公式表示と照合済みです。
+ED25519: SHA256:HQ671CkOkdg23MYPPNtNFa/eeyAy+D81vdqUp/LVhEo（完全一致）
 CMS_DEPLOY_ENABLEDをtrueにしない限り、自動配信は実行されません。
 
 1. 仕組み
