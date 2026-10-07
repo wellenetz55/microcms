@@ -41,18 +41,24 @@ def date(p):
  if p.get('_cms'):
   from datetime import datetime, timezone, timedelta
   return datetime.fromisoformat(p['_cms']['date']).astimezone(timezone(timedelta(hours=9))).strftime('%Y.%m.%d')
- for b in p.get('blocks',[]):
-  m=re.search(r'(20\d{2})[年./-](\d{1,2})[月./-](\d{1,2})',b['text'])
-  if m:return '.'.join([m[1],m[2].zfill(2),m[3].zfill(2)])
- dates={'chimeido_up':'2026.07.30','btob_branding_step':'2026.07.10','printcenter':'2026.01.09','shoten':'2026.07.31','osaji':'2026.07.28'}
- return dates.get(p['url'].rstrip('/').split('/')[-1],'')
+ # Legacy publication dates verified against the original news/column listings.
+ # Never infer publication dates from dates mentioned in the article body.
+ dates={'chimeido_up':'2026.07.30','btob_branding_step':'2026.07.10','printcenter':'2026.01.09','shoten':'2026.07.31','osaji':'2026.07.28',
+        'newcolumn09232025':'2025.09.23','企業ブランディング基礎に「失敗しない！企業ブ':'2025.07.09',
+        '動画「ai活用に躊躇している会社のための利用ガイ':'2024.10.03','for_financial':'2024.08.30'}
+ return dates.get(sourcepath(p).rstrip('/').split('/')[-1],'')
+
 def article_sort(p):
  from datetime import datetime, timezone, timedelta
  if p.get('_cms'):return datetime.fromisoformat(p['_cms']['date']).timestamp()
  value=date(p)
  return datetime.strptime(value,'%Y.%m.%d').replace(tzinfo=timezone(timedelta(hours=9))).timestamp() if value else 0
 news.sort(key=article_sort,reverse=True);columns.sort(key=article_sort,reverse=True)
-def newsrows(ps,label='NEWS'):return '<div class="news-list">'+''.join(a(sourcepath(p),f'<time>{date(p)}</time><span class="tag">{label}</span><h3>{E(p["title"])}</h3>','news-row') for p in ps)+'</div>'
+def article_time(p):
+ value=date(p)
+ return f'<time datetime="{value.replace(".","-")}">{value}</time>' if value else '<span class="date-unknown">公開日未登録</span>'
+def newsrows(ps,label=None):
+ return '<div class="news-list">'+''.join(a(sourcepath(p),article_time(p)+f'<span class="tag">{label or ("COLUMN" if sourcepath(p).startswith("/column/") else "NEWS")}</span><h3>{E(p["title"])}</h3>','news-row') for p in ps)+'</div>' 
 # Numbered MP4 filenames define the homepage background sequence.
 hero_clips=sorted((p for p in (DIST/'assets/videos').glob('*') if p.is_file() and p.suffix.lower()=='.mp4'),key=lambda p:p.name.lower())
 hero_video_sources=['/assets/videos/'+urllib.parse.quote(p.name) for p in hero_clips]
@@ -66,7 +72,8 @@ home+=section('<div class="split"><div>'+eyebrow('OUR PERSPECTIVE')+'<h2>営業�
 home+=section(sh('OUR SERVICES','伝わる。惹き寄せる。動き出す。',a('/services/','すべての事業を見る','text-link'))+'<div class="services">'+''.join(a(u,f'<span class="num">0{i+1}</span><div><span class="en">{en.split(" / ")[1]}</span><h3>{t}</h3></div><p>{d}</p><span class="end">サービスを知る</span>','service-row') for i,(u,en,t,d) in enumerate(services))+'</div>','soft')
 home+=section(sh('SELECTED CASES','価値が変えた、企業のストーリー。',a('/case_study/','24の事例を見る','text-link'))+'<div class="grid3">'+''.join(casecard(c) for c in cases[:3])+'</div>')
 home+=section('<div class="split"><div>'+eyebrow('OUR METHOD')+'<h2>感覚だけに頼らない。<br>再現性高いブランディング。</h2><p>企業の価値を、顧客にとっての価値へ。<br>ベレネッツ独自のブランディングメソッド<br>T.R.U.S.T.が、その接点を見つけます。</p>'+button('/branding/','T.R.U.S.T.理論を知る','light')+'</div><div class="method-panel"><p class="method-owner">ベレネッツ独自のブランディングメソッド</p><div class="big-en">T.R.U.S.T.</div><div class="method-band">'+''.join(f'<div class="method-letter"><strong>{c}</strong><span>{t}</span></div>' for c,t in [('T','透明性'),('R','衝撃性'),('U','独自性'),('S','必然性'),('T','物語性')])+'</div><p style="margin-top:30px">すべてを揃えるのではなく、貴社に合う要素を見極め、組み合わせます。</p></div></div>','dark',id='method')
-home+=section(sh('NEWS & INSIGHTS','ベレネッツからのお知らせ。',a('/news/','ニュース一覧','text-link'))+newsrows(news[:3]))
+updates=sorted(news+columns,key=article_sort,reverse=True)
+home+=section(sh('NEWS & INSIGHTS','ベレネッツからのお知らせ。','<div class="actions">'+a('/news/','ニュース一覧','text-link')+a('/column/','コラム一覧','text-link')+'</div>')+newsrows(updates[:6]),id='updates')
 home+=section('<div class="split"><div>'+eyebrow('ABOUT WELLENETZ')+'<h2>東京と名古屋から、<br>企業の可能性をひらく。</h2><p>ブランドの脚本づくりから、上演まで。<br>企業ブランディングとマーケティングの専門会社です。</p></div><div>'+cards([('/overview/','COMPANY','会社情報','私たちの概要・拠点について。'),('/overview/message/','MESSAGE','代表メッセージ','ブランディングに込める想い。')])+'</div></div>','soft')
 page('/','伝わる、その先へ。',home,hero=False)
 # Reusable page components and full page inventory.
@@ -96,7 +103,7 @@ def article(p):
     if label.strip() and E(label) in text:text=text.replace(E(label),a(localize(u),E(label)),1)
    chunks.append(f'<p>{text}</p>')
  aside='<aside class="article-aside"><strong>このページの内容</strong>'+''.join(a(u,E(t[:34])) for u,t in toc[:10])+'</aside>'
- return '<div class="article-layout">'+aside+'<article class="prose">'+''.join(chunks)+f'<p class="source-link">掲載情報：{a(p["url"],"Wellenetz公式サイト")}</p></article></div>'
+ return '<div class="article-layout">'+aside+'<article class="prose">'+('<p class="cms-date">'+article_time(p)+'</p>' if date(p) else '')+''.join(chunks)+f'<p class="source-link">掲載情報：{a(p["url"],"Wellenetz公式サイト")}</p></article></div>'
 def branch_nav(items,path):return '<nav class="wrap subnav" aria-label="関連ページ">'+''.join(f'<a href="{u}"'+(' aria-current="page"' if path==u else '')+f'>{t}</a>' for u,t in items)+'</nav>'
 service_nav=[('/services/','すべての事業'),('/branding/','ブランディング'),('/marketing/','マーケティング'),('/creative/','クリエイティブ制作'),('/branding/approrach/','取り組み方')]
 company_nav=[('/overview/','会社概要'),('/overview/what_we_do/','私たちの強み'),('/overview/message/','代表メッセージ'),('/overview/history/','沿革'),('/overview/access/','アクセス')]
