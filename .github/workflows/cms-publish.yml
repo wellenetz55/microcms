@@ -63,10 +63,23 @@ jobs:
         env:
           PRIVATE_KEY: ${{ secrets.XSERVER_SSH_PRIVATE_KEY }}
           KNOWN_HOSTS: ${{ secrets.XSERVER_KNOWN_HOSTS }}
+          XSERVER_SSH_PASSPHRASE: ${{ secrets.XSERVER_SSH_PASSPHRASE }}
         run: |
           umask 077
+          test -n "$PRIVATE_KEY" && test -n "$KNOWN_HOSTS"
           printf '%s\n' "$PRIVATE_KEY" > "$RUNNER_TEMP/xserver.key"
           printf '%s\n' "$KNOWN_HOSTS" > "$RUNNER_TEMP/xserver.known_hosts"
+          eval "$(ssh-agent -s)" > /dev/null
+          printf 'SSH_AUTH_SOCK=%s\nSSH_AGENT_PID=%s\n' "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" >> "$GITHUB_ENV"
+          cat > "$RUNNER_TEMP/xserver-askpass" <<'ASKPASS'
+          #!/bin/sh
+          printf '%s\n' "${XSERVER_SSH_PASSPHRASE:-}"
+          ASKPASS
+          chmod 700 "$RUNNER_TEMP/xserver-askpass"
+          if ! DISPLAY=:0 SSH_ASKPASS_REQUIRE=force SSH_ASKPASS="$RUNNER_TEMP/xserver-askpass" ssh-add "$RUNNER_TEMP/xserver.key" < /dev/null > /dev/null 2>&1; then
+            echo 'SSH key could not be unlocked. Check the private key and passphrase Secrets.' >&2
+            exit 1
+          fi
       - name: Publish verified release
         env:
           XSERVER_HOST: ${{ vars.XSERVER_HOST }}
@@ -77,4 +90,6 @@ jobs:
         run: python3 cms/deploy.py --release cms-output/release --apply
       - name: Remove temporary credentials
         if: always()
-        run: rm -f "$RUNNER_TEMP/xserver.key" "$RUNNER_TEMP/xserver.known_hosts"
+        run: |
+          if [ -n "${SSH_AGENT_PID:-}" ]; then ssh-agent -k > /dev/null || true; fi
+          rm -f "$RUNNER_TEMP/xserver.key" "$RUNNER_TEMP/xserver.known_hosts" "$RUNNER_TEMP/xserver-askpass"
