@@ -47,7 +47,8 @@ jobs:
           result=subprocess.run(ssh+[user+'@'+host,'python3 -c '+shlex.quote(remote_script)],capture_output=True,text=True,timeout=45)
           print(result.stdout)
           if result.returncode:
-              diagnostic_markers=('Offering public key:','Server accepts key:','no mutual signature','Authentications that can continue:','sign_and_send_pubkey:','Permission denied','Host key verification failed','Connection timed out','Connection refused','identity file ','agent returned')
+              print('SSH exit status:',result.returncode)
+              diagnostic_markers=('Authenticated to ','Exit status ','command not found','No such file or directory','Traceback','SyntaxError','ModuleNotFoundError','NameError','TypeError','agent refused operation','Offering public key:','Server accepts key:','no mutual signature','Authentications that can continue:','sign_and_send_pubkey:','Permission denied','Host key verification failed','Connection timed out','Connection refused','identity file ','agent returned')
               for line in result.stderr.splitlines():
                   if any(marker in line for marker in diagnostic_markers):
                       print(line)
