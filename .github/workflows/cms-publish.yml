@@ -1,4 +1,4 @@
-name: Publish microCMS to Xserver
+name: Build microCMS for Xserver pull
 on:
   workflow_dispatch:
     inputs:
@@ -44,12 +44,13 @@ jobs:
           path: cms-output/release/
           retention-days: 7
           if-no-files-found: error
-  deploy:
+  release:
     needs: build
-    if: vars.CMS_DEPLOY_ENABLED == 'true' && (github.event_name != 'workflow_dispatch' || inputs.source == 'published')
+    if: vars.CMS_RELEASE_ENABLED == 'true' && (github.event_name != 'workflow_dispatch' || inputs.source == 'published')
     runs-on: ubuntu-latest
-    timeout-minutes: 20
-    environment: production
+    timeout-minutes: 10
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -59,38 +60,14 @@ jobs:
         with:
           name: wellenetz-production
           path: cms-output/release
-      - name: Prepare SSH authentication
+      - name: Package verified static files only
+        run: python3 cms/package_release.py --release cms-output/release --output cms-output/wellenetz-site.zip
+      - name: Publish complete package for HTTPS retrieval
         env:
-          PRIVATE_KEY: ${{ secrets.XSERVER_SSH_PRIVATE_KEY }}
-          KNOWN_HOSTS: ${{ secrets.XSERVER_KNOWN_HOSTS }}
-          XSERVER_SSH_PASSPHRASE: ${{ secrets.XSERVER_SSH_PASSPHRASE }}
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: cms-production-${{ github.run_id }}-${{ github.run_attempt }}
+          TARGET_COMMIT: ${{ github.sha }}
         run: |
-          umask 077
-          test -n "$PRIVATE_KEY" && test -n "$KNOWN_HOSTS"
-          printf '%s\n' "$PRIVATE_KEY" > "$RUNNER_TEMP/xserver.key"
-          printf '%s\n' "$KNOWN_HOSTS" > "$RUNNER_TEMP/xserver.known_hosts"
-          eval "$(ssh-agent -a "$RUNNER_TEMP/xserver-agent.sock" -s)" > /dev/null
-          printf 'SSH_AUTH_SOCK=%s\nSSH_AGENT_PID=%s\n' "$SSH_AUTH_SOCK" "$SSH_AGENT_PID" >> "$GITHUB_ENV"
-          cat > "$RUNNER_TEMP/xserver-askpass" <<'ASKPASS'
-          #!/bin/sh
-          printf '%s\n' "${XSERVER_SSH_PASSPHRASE:-}"
-          ASKPASS
-          chmod 700 "$RUNNER_TEMP/xserver-askpass"
-          if ! DISPLAY=:0 SSH_ASKPASS_REQUIRE=force SSH_ASKPASS="$RUNNER_TEMP/xserver-askpass" ssh-add "$RUNNER_TEMP/xserver.key" < /dev/null > /dev/null 2>&1; then
-            echo 'SSH key could not be unlocked. Check the private key and passphrase Secrets.' >&2
-            exit 1
-          fi
-          ssh-add -L > "$RUNNER_TEMP/xserver.key.pub"
-      - name: Publish verified release
-        env:
-          XSERVER_HOST: ${{ vars.XSERVER_HOST }}
-          XSERVER_USER: ${{ vars.XSERVER_USER }}
-          XSERVER_PUBLIC_DIR: ${{ vars.XSERVER_PUBLIC_DIR }}
-          XSERVER_KEY_FILE: ${{ runner.temp }}/xserver.key
-          XSERVER_KNOWN_HOSTS_FILE: ${{ runner.temp }}/xserver.known_hosts
-        run: python3 cms/deploy.py --release cms-output/release --apply
-      - name: Remove temporary credentials
-        if: always()
-        run: |
-          if [ -n "${SSH_AGENT_PID:-}" ]; then ssh-agent -k > /dev/null || true; fi
-          rm -f "$RUNNER_TEMP/xserver.key.pub" "$RUNNER_TEMP/xserver.key" "$RUNNER_TEMP/xserver.known_hosts" "$RUNNER_TEMP/xserver-askpass"
+          gh release create "$RELEASE_TAG" cms-output/wellenetz-site.zip --target "$TARGET_COMMIT" --draft --title "$RELEASE_TAG" --notes 'Verified public website files for Wellenetz. Server-side activation is controlled separately.'
+          gh release edit "$RELEASE_TAG" --draft=false --latest
