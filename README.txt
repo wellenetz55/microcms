@@ -122,7 +122,7 @@ SEO・SNS・計測設定（2026-10-05追加）
 【2026-10-07 CMS連携追加】
 新着情報・コラムをmicroCMSから静的HTMLと画像へ生成する連携を追加しました。
 GitHubへの配置とActionsのサンプル生成テストが完了しました。
-実APIの認証、Webhook、本番自動配信は未設定です。
+実APIの認証と公開データの取得・生成も確認済みです。Webhookと本番自動配信は未設定です。
 設定手順：cms/設定・運用手順.txt
 実行：python3 cms/pipeline.py --fixture --output .cms-output/demo
 従来のpython3 build.pyは既存記事だけを生成します。CMSの更新にはcms/pipeline.pyを使います。
