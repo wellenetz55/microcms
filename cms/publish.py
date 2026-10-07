@@ -37,13 +37,25 @@ def atomic_copy(source, dest):
 def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def public_parent(root, dest):
+    """Create web directories readable by Apache even with the puller's umask 077."""
+    parent = root
+    for part in dest.parent.relative_to(root).parts:
+        parent = parent / part
+        if not parent.exists():
+            parent.mkdir()
+            parent.chmod(0o755)
+
+
 def restore(root, state):
     journal = json.loads((state/'pending.json').read_text())
     if journal.get('root') != str(root.resolve()): raise ValueError('Recovery destination does not match original publish')
     backup = state/'backups'/journal['id']
     for rel, existed in journal['changes'].items():
         dest = safe_path(root,rel)
-        if existed: atomic_copy(safe_path(backup/'files',rel),dest)
+        if existed:
+            public_parent(root,dest)
+            atomic_copy(safe_path(backup/'files',rel),dest)
         elif dest.exists(): dest.unlink()
     if (backup/'manifest.json').exists(): atomic_copy(backup/'manifest.json',state/'manifest.json')
     elif (state/'manifest.json').exists(): (state/'manifest.json').unlink()
@@ -96,7 +108,10 @@ def publish(release, root, state, dry_run=False, rollback=False):
                 if rel.startswith('assets/'): return 0
                 if rel in ('index.html','news/index.html','column/index.html','sitemap/index.html','sitemap.xml'): return 2
                 return 1
-            for rel in sorted(changed,key=order): atomic_copy(release/'site'/rel,safe_path(root,rel))
+            for rel in sorted(changed,key=order):
+                dest = safe_path(root,rel)
+                public_parent(root,dest)
+                atomic_copy(release/'site'/rel,dest)
             for rel in remove:
                 dest = safe_path(root,rel); dest.unlink()
                 if not any(dest.parent.iterdir()): dest.parent.rmdir()
