@@ -1,0 +1,689 @@
+{
+  "/": {
+    "title": "企業ブランディング・マーケティング支援｜東京・名古屋 | ベレネッツ",
+    "description": "商品も、技術も、変えません。変えるのは、顧客からの「見え方」です。ベレネッツは25年以上・750社超の支援経験と独自のT.R.U.S.T.理論で、まだ伝わっていない価値を発見し、戦略から実行・改善まで支援します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/services/": {
+    "title": "事業内容｜ブランディング・マーケティング・制作 | ベレネッツ",
+    "description": "ベレネッツの3事業をご紹介。ブランディングで価値を見つけ、マーケティングで顧客との接点を設計し、クリエイティブで行動につなげます。課題や目的に合った支援をお探しいただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/branding/": {
+    "title": "ブランディング事業｜課題に合わせた3つの支援 | ベレネッツ",
+    "description": "禁断のブランディング、時短ブランディング、選ばれる理由AI。ベレネッツ独自のT.R.U.S.T.理論を軸に、隠れた価値の発見、顧客の認識の変革、自社の言語化を支援します。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/branding/reason-ai/": {
+    "title": "選ばれる理由AI｜自社の価値を言葉にする | ベレネッツ",
+    "description": "25年以上・750社超の支援経験をもとにした専用AIとの対話で、自社の「選ばれる理由」を言語化。ベレネッツの3メソッドと、節目ごとの専門家による進捗支援を組み合わせます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/branding/forbidden/": {
+    "title": "禁断のブランディング®｜隠れた価値を発見 | ベレネッツ",
+    "description": "技術、実績、現場の工夫に隠れた価値を発見する、ベレネッツの禁断のブランディング。独自のT.R.U.S.T.理論で企業・商品・サービスを捉え直し、コンセプト設計から戦略の実行まで支援します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/branding/jitan/": {
+    "title": "時短ブランディング®｜顧客の認識を変える | ベレネッツ",
+    "description": "企業・商品・サービス自体を変えずに、顧客の思い込みや誤認識を変える時短ブランディング。価値が伝わることを妨げている認識を特定し、顧客からの見え方を変える戦略と接点をつくります。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/marketing/": {
+    "title": "マーケティング事業｜支援・事業開発・緊QR | ベレネッツ",
+    "description": "ベレネッツのマーケティング事業をご紹介。マーケティング支援、少額短期保険事業への参入支援、デジタルサービス「緊QR」の3領域で、企業の価値が届く接点を設計します。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/marketing/support/": {
+    "title": "マーケティング支援｜顧客に価値が届く接点設計 | ベレネッツ",
+    "description": "認知から比較・検討、問い合わせまで、顧客との接点を設計するベレネッツのマーケティング支援。顧客の行動やニーズを捉え、戦略と施策をつなぎます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/marketing/small-short-term-insurance/": {
+    "title": "少額短期保険事業参入支援 | ベレネッツ",
+    "description": "少額短期保険事業への参入を検討する企業へ。ベレネッツとリイマジンが、事業構想から準備・立ち上げまでの流れと、それぞれの専門性を活かした支援をご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/marketing/kinqr/": {
+    "title": "緊QR（DynQ）｜緊急時情報管理サービス | ベレネッツ",
+    "description": "平時と緊急時で、必要な情報を届け分ける「緊QR（DynQ）」。ベレネッツが提供する緊急時情報管理サービスの仕組み、活用イメージ、導入までの流れをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/creative/": {
+    "title": "クリエイティブ制作｜WEB・動画・デザイン | ベレネッツ",
+    "description": "ブランドの戦略を、行動につながる体験へ。ベレネッツはブランディングとマーケティングの視点から、WEB・動画・デザインの制作をつなぎ、価値が伝わる表現をつくります。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/overview/what_we_do/": {
+    "title": "私たちの強み｜ベレネッツが選ばれる3つの理由 | ベレネッツ",
+    "description": "貴社に強みはある。伝わっていないだけ。独自のT.R.U.S.T.理論、戦略から制作・運用までの一貫支援、貴社に合う要素の組み合わせ。25年以上・750社超を支援するベレネッツの強みをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "AboutPage",
+    "service": false
+  },
+  "/overview/proposal/": {
+    "title": "提案の仕方｜ご相談からご提案まで | ベレネッツ",
+    "description": "まず、貴社を知ることから。初回のヒアリング、課題の分析、初期提案、ご検討まで、ベレネッツのご提案の流れをご紹介。企業の現状と課題に合わせて支援内容を考えます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/branding/approrach/": {
+    "title": "ブランディングの進め方｜プロジェクトフロー | ベレネッツ",
+    "description": "現状分析、コンセプト設計、戦略策定、浸透施策・制作、運用・PDCA。ベレネッツが専門家として支援する、一つにつながるブランディングのプロジェクトフローをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/wellenetz-menu/": {
+    "title": "経営課題別ブランディング支援 | ベレネッツ",
+    "description": "認知を高めたい、価格競争から抜け出したい、集客や採用を改善したい。貴社の課題から、ベレネッツのブランディング・マーケティング支援を探せます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/case_study/": {
+    "title": "ブランディング・マーケティングの事例紹介 | ベレネッツ",
+    "description": "ベレネッツのブランディング・マーケティング支援事例を24件掲載。製造、金融、IT、小売、サービスなど、業種ごとの価値の発見と伝え方のアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_study/ex24/": {
+    "title": "地方ならではの強みで大手に対抗する地方不動産会社 | ベレネッツ",
+    "description": "大手がWEBサイト上位を占める不動産賃貸仲介サイトで、首位争いに割り込みたい地方の不動産チェーンZ社。広告費で大手と張り合うのではなく、掘り起こしたのは「地方ならではの、大手が扱わない物件」という隠れた価値でした。これを軸に、物件を探し始める前の潜在層にまで独自性を届ける非広告型…",
+    "image": "/assets/ex24.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex23/": {
+    "title": "食品ではなく成分の認知度を上げたい大手食品メーカー | ベレネッツ",
+    "description": "商品は知られていても、要となる成分は知られていない——成分の認知拡大に悩む大手食品メーカーY社。広告で商品名を連呼するのではなく、成分そのものの魅力とコンセプトを”脚本”として磨き上げ、「なぜこの成分が必要なのか」から教育するコンテンツマーケティングで徹底的に打ち出しました。まだ…",
+    "image": "/assets/ex23.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex22/": {
+    "title": "レッドオーシャンのEC通販市場で見込み客獲得 | ベレネッツ",
+    "description": "コモディティ商品のEC通販は、広告費を積むほど消耗するレッドオーシャン。W社がブランディングで実施したのは、商品の売り込みではなく「見込み客の取り方」そのものを競合他社と差別化することでした。購入直前のわずかな層を奪い合うのではなく、その手前の問題意識層・無自覚層を惹き寄せる新た…",
+    "image": "/assets/ex22.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex21/": {
+    "title": "差別化が難しいと言われる某保険サービスの戦略 | ベレネッツ",
+    "description": "競合他社と変わり映えしないサービス、保険料でも勝負しにくい——特定カテゴリー向け保険のV社。ブランディングで掘り起こしたのは、実は他の会社も持っているのに、どこも打ち出していないベネフィットでした。「先に言った者が独自性を手にする」というブランディングの定石で脚本を先取りし、さら…",
+    "image": "/assets/ex21.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex20/": {
+    "title": "素材の品質を打ち出して逆転した子ども服のアパレルメーカー | ベレネッツ",
+    "description": "業績不振に悩む子ども服メーカーU社。ブランディングで掘り下げると、「素材の品質の高さ」こそが売りに繋がる隠れた価値だと判明しました。そこで広告に頼らず、ある特定の疾患を持つ患者さんに、その肌にやさしい服を提供する施策を実施。本当に必要とする人へ価値を届ける物語は、皮膚科界隈で自然…",
+    "image": "/assets/ex20.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex19/": {
+    "title": "業績不振で苦しむ地方空港の再建 | ベレネッツ",
+    "description": "発着便が減り、そもそもの利用者が減っていく地方空港。空港単体をいくらPRしても、そこへ行く理由がなければ人は動きません。そこで視点を変え、空港ではなく「そのエリア自体」の魅力を脚本化するブランディングを実行。事業計画の作成から伴走し、空港への集客と、町に人を流すためのコンテンツマ…",
+    "image": "/assets/ex19.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex18/": {
+    "title": "競合がやらないサービスに特化した美容系チェーン店 | ベレネッツ",
+    "description": "認知に苦しむ美容系チェーン店を運営するT社。広告を増やしても、他店と同じに見えるうちは選ばれません。ブランディングで見つけたのは、「競合がやらない（やりたがらない）サービス」という空白地帯でした。そこに特化したことを徹底的に打ち出し、店舗展開の軸にも据えて差別化に成功。「あの店だ…",
+    "image": "/assets/ex18.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex17/": {
+    "title": "売上好調なのに人材流出が止まらない食品サービス | ベレネッツ",
+    "description": "業績は好調なのに離職者が止まらない、食品のBtoBアウトソーシングを提供するS社。求人広告を増やす前に、まず「この会社で働く意味」を再定義するブランディングを実施しました。その脚本を土台にSNSマーケティングを展開すると、条件ではなく共感で人が集まる採用へと変わり、人材の確保に成…",
+    "image": "/assets/ex17.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex16/": {
+    "title": "売上好調の食品製造メーカーが次の進む道をアシスト | ベレネッツ",
+    "description": "売上好調のうちに次のステップを踏み出したい食品製造メーカーR社。ブランディングでまず行ったのは、顧客が感じている価値と、社員が提供しているつもりの価値を見える化し、そのズレと重なりを明らかにすることでした。そこから浮かび上がった「本当に選ばれている理由」を核にMVVを再構築し、次…",
+    "image": "/assets/ex16.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex15/": {
+    "title": "サービスでは先頭を走るIT企業なのに何故か離職が止まらない | ベレネッツ",
+    "description": "IT業界では先頭を切っているサービスなのに、離職が止まらないQ社。人の入れ替わりで営業トークが属人化・煩雑化し、「自社の価値を自分の言葉で語れない」状態に陥っていました。ブランディングでベネフィットを固め、誰が話しても同じ価値が伝わるよう営業トークを統一・構造化。新人でもすぐに一…",
+    "image": "/assets/ex15.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex14/": {
+    "title": "安値競争から脱したメガネチェーン会社の戦略 | ベレネッツ",
+    "description": "業界的に差別化が難しく、大手の格安戦略に苦しんでいたメガネチェーン店P社。価格では戦わないと決め、一人ひとりの接客の質、カスタマーエクスペリエンスを第一の価値として脚本化しました。さらにビジュアルアイデンティティを刷新して古臭さを払拭し、「安さ」ではなく「体験」で店を選ぶ理由を丁…",
+    "image": "/assets/ex14.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex13/": {
+    "title": "権威性で悩む公正取引委員会がしたこと | ベレネッツ",
+    "description": "権威性の見られ方に問題を感じていた公正取引委員会。競合がいない組織のブランディングは、差別化ではなく「どう認識されるべきか」を設計する課題解決型になります。今回目指す姿を『常に監視』というコンセプトに定め、それをイメージさせるロゴの導入でイメージを強化しました。伝えたい印象を、言…",
+    "image": "/assets/ex13.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex12/": {
+    "title": "FC加盟店が増えなかったファッション系の企業の改革 | ベレネッツ",
+    "description": "FC加盟店が増えないと悩むファッション系のO社。募集の宣伝を強化する前に、まず既存のFC加盟店へのヒアリングから着手しました。次々と掘り起こされたのは、改善が必要な不満の声と問題点、そして本部と加盟店の期待値のズレ。これを是正し「加盟する価値」を立て直したうえで募集に臨むと、加盟…",
+    "image": "/assets/ex12.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex11/": {
+    "title": "中小の旅行代理店が大手に逆転した方法 | ベレネッツ",
+    "description": "大手の看板に苦しんでいた中小の旅行代理店N社。当時当たり前だった商業施設内カウンターでの”待ちの営業”を抑え、法人営業部を新設しました。企業の研修旅行に特化したプランを磨き上げると、大手と同じ土俵で比較されない独自のポジションが生まれ、これが見事に刺さって新しい販路開拓に繋がりま…",
+    "image": "/assets/ex11.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex10/": {
+    "title": "近隣住民がファンに変わった大きな工場を持つメーカー | ベレネッツ",
+    "description": "近隣住民からのマイナスイメージを払拭したい、地方の大きな工場を持つ製造メーカーM社。イメージ広告ではなく、バーチャル工場紹介の動画で「中で何をしているのか」を透明に開示し、さらに工場でお祭りを開催して近隣の方との距離を物理的にも心理的にも縮めました。顔が見え、理解が生まれると、住…",
+    "image": "/assets/ex10.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex09/": {
+    "title": "大手に属さずIPOまで上り詰めた金融コンサル会社 | ベレネッツ",
+    "description": "上場を目指していた金融コンサルのK社。有名な金融グループに属していたわけではなく、独立した企業——金融業界においてそれは「信用の後ろ盾がない」ことを意味します。そこで上場審査に向け、徹底的に権威性をブランディングで構築して打ち出しました。積み上げてきた実力を、審査する側・投資する…",
+    "image": "/assets/ex09.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex08/": {
+    "title": "インナーブランディングでグループ会社の関係値向上 | ベレネッツ",
+    "description": "グループ会社同士の関係性が悪く悩んでいたエネルギー会社J社。社外への発信よりも先に、まず内側の物語を揃えるインナーブランディングを実施しました。グループ会社間の優劣意識をなくし、対等に接するための共通の価値観と言葉を整備。「同じ脚本を共有する仲間」になったことで、社内全体のモチベ…",
+    "image": "/assets/ex08.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex07/": {
+    "title": "家電量販店の販路から脱して売上が伸びた美容系メーカー | ベレネッツ",
+    "description": "大手家電量販店の良い場所に陳列してもらえても売上が伸びず悩んだ美容系メーカー。ブランディングで自社の価値を紹介し直したうえで、店舗販売での販促をあえて縮小し、コンテンツマーケティングに徹底的に仕掛けを移しました。店頭で偶然出会うのを待つのではなく、悩みを持つ人が自ら情報にたどり着…",
+    "image": "/assets/ex07.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex06/": {
+    "title": "公営競技場のギャンブルイメージを払拭するブランディング | ベレネッツ",
+    "description": "地域住民の理解に苦しんだ地方公営競技場。『公営競技＝ギャンブル』という認識を緩和するために選んだのは、イメージ広告ではなく”事実の開示”でした。公営競技の収益が町づくりに還元されているという、住民のほとんどが知らなかった事実を認知拡大するブランディングを展開。「知らなかった」が「…",
+    "image": "/assets/ex06.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex05/": {
+    "title": "『商品ラインナップ×BtoB』で販路開拓した小売業者 | ベレネッツ",
+    "description": "レッドオーシャンのEC販売をメインにしていた小売業者のH社。価格競争の土俵から降りるためにブランディングで見直したのは、自社の隠れた価値——ある特定の分野で10万種類を超える商品ラインナップという、本人たちには当たり前すぎて訴求してこなかった強みでした。『商品ラインナップ×Bto…",
+    "image": "/assets/ex05.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex04/": {
+    "title": "差別化が難しいコンサル業界で一人勝ちした企業 | ベレネッツ",
+    "description": "コンサル業界で差別化に苦しんでいたG社。サービス内容そのものではなく、見込み客へのアプローチ方法で差別化するという発想の転換を実施しました。得意にしている分野の無料コンテンツダウンロードを設置し、売り込む前に価値を先に渡して信頼を積み上げる、非広告型の”惹き寄せ”導線を構築。特定…",
+    "image": "/assets/ex04.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex03/": {
+    "title": "価格競争になってしまった建材メーカーが変えたものは？ | ベレネッツ",
+    "description": "安値提案しないと契約が取れない状況だった建材製造メーカーのF社。値引き競争の泥沼から抜け出すため、ブランディングで価格以外のベネフィットを洗い出し、埋もれていた4つの価値の掘り出しに成功しました。それを軸に営業トークスクリプトを再構築すると、商談の話題が「いくらか」から「なぜF社…",
+    "image": "/assets/ex03.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex02/": {
+    "title": "後発での逆転劇を起こした医療機器製造メーカー | ベレネッツ",
+    "description": "業界では後発だった医療機器製造メーカーのE社。先発企業の土俵で追いかけるのではなく、競合他社には持っていない特色を前面に出す戦略へと脚本を書き換えました。国内での認知を焦らず、その独自性が最も評価される海外マーケットで勝負すると火がつき大ブレーク。実績という何よりの証明を携え、海…",
+    "image": "/assets/ex02.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_study/ex01/": {
+    "title": "リブランディングで下剋上した美容向けの卸し会社 | ベレネッツ",
+    "description": "美容向け製造卸という業態ゆえに、周りの企業からは下に見られていたD社。ブランディングで自社を棚卸しすると、キャラクターライセンスが武器になることが発覚し、単なる卸ではなく「プロダクトが開発できるクリエイティブ企業」として自社を再定義し、再スタートしました。下請け的な立ち位置から、…",
+    "image": "/assets/ex01.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/case_category/real_estate/": {
+    "title": "不動産の事例 | ベレネッツ",
+    "description": "不動産の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/food_manufacturing/": {
+    "title": "食品製造の事例 | ベレネッツ",
+    "description": "食品製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/ec/": {
+    "title": "EC物販の事例 | ベレネッツ",
+    "description": "EC物販の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/insurance/": {
+    "title": "保険の事例 | ベレネッツ",
+    "description": "保険の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/apparel/": {
+    "title": "アパレルの事例 | ベレネッツ",
+    "description": "アパレルの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/aviation/": {
+    "title": "航空の事例 | ベレネッツ",
+    "description": "航空の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/service_industry/": {
+    "title": "サービス業の事例 | ベレネッツ",
+    "description": "サービス業の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/outsourcing/": {
+    "title": "アウトソーシングの事例 | ベレネッツ",
+    "description": "アウトソーシングの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/it_btoc/": {
+    "title": "IT企業(BtoC)の事例 | ベレネッツ",
+    "description": "IT企業(BtoC)の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/retail_chain/": {
+    "title": "小売チェーンの事例 | ベレネッツ",
+    "description": "小売チェーンの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/fair_trade_commission/": {
+    "title": "公正取引委員会の事例 | ベレネッツ",
+    "description": "公正取引委員会の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/fashion/": {
+    "title": "ファッションの事例 | ベレネッツ",
+    "description": "ファッションの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/travel_agency/": {
+    "title": "旅行代理店の事例 | ベレネッツ",
+    "description": "旅行代理店の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/manufacturing/": {
+    "title": "製造の事例 | ベレネッツ",
+    "description": "製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/financial_services/": {
+    "title": "金融サービスの事例 | ベレネッツ",
+    "description": "金融サービスの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/fuel_production/": {
+    "title": "燃料製造の事例 | ベレネッツ",
+    "description": "燃料製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/beauty_manufacturing/": {
+    "title": "美容系製造の事例 | ベレネッツ",
+    "description": "美容系製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/public_organization/": {
+    "title": "公益団体の事例 | ベレネッツ",
+    "description": "公益団体の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/retail/": {
+    "title": "輸入雑貨小売の事例 | ベレネッツ",
+    "description": "輸入雑貨小売の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/consulting/": {
+    "title": "コンサルティングの事例 | ベレネッツ",
+    "description": "コンサルティングの事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/building_materials/": {
+    "title": "建材製造の事例 | ベレネッツ",
+    "description": "建材製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/medical_device/": {
+    "title": "医療機器製造の事例 | ベレネッツ",
+    "description": "医療機器製造の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/case_category/manufacturing_wholesaler/": {
+    "title": "製造卸の事例 | ベレネッツ",
+    "description": "製造卸の事例をご紹介。ベレネッツによるブランディング・マーケティング支援の中から、業種に合う価値の発見や伝え方、課題へのアプローチをご覧いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/overview/": {
+    "title": "会社概要｜株式会社ベレネッツ | ベレネッツ",
+    "description": "株式会社ベレネッツの会社概要。東京・銀座と名古屋・錦を拠点に、企業ブランディング、マーケティング、クリエイティブ制作を支援。設立、代表者、事業内容、拠点情報をご案内します。",
+    "image": "/assets/hero.jpg",
+    "type": "AboutPage",
+    "service": false
+  },
+  "/overview/access/": {
+    "title": "アクセス｜東京・銀座／名古屋・錦 | ベレネッツ",
+    "description": "ベレネッツの東京オフィス・名古屋オフィスへのアクセスをご案内します。所在地、電話番号、Googleマップへのリンクをご確認いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/overview/history/": {
+    "title": "沿革｜ベレネッツの歩み | ベレネッツ",
+    "description": "ベレネッツの沿革をご紹介。オンラインデザインからブランド支援へ、時代の変化とともに企業の「選ばれる理由」を支えてきた歩みをご覧ください。",
+    "image": "/assets/hero.jpg",
+    "type": "AboutPage",
+    "service": false
+  },
+  "/inquiry/": {
+    "title": "お問い合わせ・無料相談 | ベレネッツ",
+    "description": "ブランディング、マーケティング、クリエイティブ制作のご相談はベレネッツへ。総合お問い合わせ、取材、講師依頼、協業のご相談など、目的に合う窓口をご案内します。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
+  },
+  "/inquiry/general/": {
+    "title": "総合お問い合わせ | ベレネッツ",
+    "description": "ベレネッツへの総合お問い合わせ。企業ブランディング、マーケティング、WEB制作など、まだ言葉にならない課題もご相談ください。入力内容を確認してお問い合わせを送信できます。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
+  },
+  "/inquiry/interview_requests/": {
+    "title": "メディア・取材のお問い合わせ | ベレネッツ",
+    "description": "ベレネッツへの取材・メディア掲載に関するお問い合わせ窓口です。取材内容やご希望の日程などを入力・確認して送信できます。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
+  },
+  "/inquiry/instructor_requests/": {
+    "title": "講師依頼のお問い合わせ | ベレネッツ",
+    "description": "ブランディングやマーケティングに関する講師依頼のご相談窓口です。講演・研修のテーマやご希望の日程などを入力・確認して送信できます。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
+  },
+  "/inquiry/jv/": {
+    "title": "協業・提携のご相談 | ベレネッツ",
+    "description": "ベレネッツとの協業・提携に関するお問い合わせ窓口です。事業内容やご提案、ご相談の概要を入力・確認して送信できます。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
+  },
+  "/news/": {
+    "title": "ニュース・お知らせ | ベレネッツ",
+    "description": "ベレネッツからのニュース・お知らせ。企業ブランディングやマーケティングに関する新しいコンテンツの公開情報、活動、お客様へのご案内をお届けします。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/column/": {
+    "title": "ブランディング・マーケティングのコラム | ベレネッツ",
+    "description": "ブランディングとマーケティングの現場から、企業の可能性を考えるベレネッツのコラム。顧客の認識、隠れた価値、事業の成長につながる視点をお届けします。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/resources/": {
+    "title": "無料コンテンツ｜ブランドを考えるヒント | ベレネッツ",
+    "description": "ブランドを考える最初の一歩に。ベレネッツの無料コンテンツや関連サービスへの入口をまとめました。自社の価値やブランディングの課題を整理するためにご活用ください。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/branding/attracting_branding/": {
+    "title": "BtoB集客ブランディング | ベレネッツ",
+    "description": "顧客の潜在的な課題や深層ニーズに着目するBtoB集客ブランディング。意思決定者が自ら知りたくなる接点を設計し、ベレネッツが企業の独自の価値と見込み客との出会いを支援します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/branding/branding_for_venture_Investment/": {
+    "title": "出資獲得のためのブランディング | ベレネッツ",
+    "description": "技術の価値を、投資家に届く事業の言葉へ。出資獲得を目指す企業のブランディングについて、ベレネッツの支援の視点をご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/branding/recruitment_branding/": {
+    "title": "採用ブランディング | ベレネッツ",
+    "description": "企業の隠れた魅力と、まだ出会えていない人材をつなぐ採用ブランディング。応募数だけにとらわれず、企業に合う人材に価値が伝わる認識と接点づくりをベレネッツが支援します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/branding/sns_branding/": {
+    "title": "SNSブランディング | ベレネッツ",
+    "description": "「いいね」やフォロワー数だけにとらわれず、SNSを見る人の潜在ニーズに働きかけるブランディング。ベレネッツが顧客の「知りたい」を育て、企業の価値が届く接点を設計します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": true
+  },
+  "/brandingseminar_free/": {
+    "title": "無料ブランディングセミナー | ベレネッツ",
+    "description": "ベレネッツの無料ブランディングセミナーをご案内。企業ブランディングを考えるための視点や、セミナーに関する情報をご確認いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/column/動画「ai活用に躊躇している会社のための利用ガイ/": {
+    "title": "動画「AI活用に躊躇している会社のための利用ガイド」を公開しました | ベレネッツ",
+    "description": "日々の業務に追われ、新しいテクノロジーの導入を考える余裕すらない。そんな状況の中小企業の皆様も多いのではないでしょうか。 「生成AI活用」という言葉をよく耳にするものの、「何から始めればいいのか分からない」「社内に詳しい人材がいない」「自社に合った活用法が見つからない」といった悩…",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/column/記事「中小企業の皆さん！生成ai凄そう、はもう卒/": {
+    "title": "記事「中小企業の皆さん！生成AI凄そう、はもう卒業しましょう」を公開しました | ベレネッツ",
+    "description": "日々の業務に追われ、新しいテクノロジーの導入を考える余裕がない。または商工会議所や役所のセミナーでAIについてのセミナーを受けてきたけど、結局「すごい！」で終わってしまった。。。そんな状況の中小企業の皆様も多いのではないでしょうか。 中小企業は今まで人材で大企業に敵わない、という…",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/column/for_financial/": {
+    "title": "金融機関(地方金融機関でも)こそブランディングを行うべき理由 | ベレネッツ",
+    "description": "金融機関が横並びの競争から抜け出すには。地域の金融機関を含め、顧客からの認識を変えるブランディングと、WEBサイトの機会損失を見直す必要性を考えます。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/column/osaji/": {
+    "title": "なぜ群馬の「めっき工場」のコスメが、高級ホテルに選ばれるのか | ベレネッツ",
+    "description": "めっき工場発のコスメブランド「OSAJI」を題材に、技術の見せ方と顧客の認識を考えるコラム。ベレネッツが、企業の既存の強みを新しい価値として伝える視点を読み解きます。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/column/shoten/": {
+    "title": "書店が半分に減った業界で、なぜ出版社は「増えて」いるのか？ | ベレネッツ",
+    "description": "書店が減る一方で出版社が増えるのはなぜか。出版業界の変化から、顧客が求める価値や事業の捉え方を考える、ベレネッツのブランディングコラムです。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/cookie-policy/": {
+    "title": "Cookieポリシー | ベレネッツ",
+    "description": "ベレネッツのWebサイトにおけるCookieの利用に関する方針をご案内します。Cookieの取扱いや関連する情報をご確認いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/handle_personal_data/": {
+    "title": "個人情報の取扱いについて | ベレネッツ",
+    "description": "株式会社ベレネッツにおける個人情報の取扱いについてご案内します。個人情報の利用目的、管理、お問い合わせに関する情報をご確認ください。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/news/企業ブランディング基礎に「失敗しない！企業ブ/": {
+    "title": "企業ブランディング基礎に「失敗しない！企業ブランディングを依頼するときに絶対押さえるべきポイント」が追加されました | ベレネッツ",
+    "description": "「ブランディングを依頼したのに、思ったような効果が出ない…」そんな企業が実は非常に多いことをご存知でしょうか？多額の費用をかけてロゴを刷新し、Webサイトをリニューアルしたにも関わらず、売上も認知度も思うように向上しない。そして最終的に「ブランディングは効果がない」という結論に至…",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/news/btob_branding_step/": {
+    "title": "【更新】BtoB企業が陥る「価格競争」から抜け出すための本質的なブランディングとは？ | ベレネッツ",
+    "description": "価格でしか比較されない、WEBやロゴを刷新しても問い合わせが増えない。BtoB企業の悩みに向き合い、価格競争から抜け出すブランディングの本質を解説する記事をご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/news/chimeido_up/": {
+    "title": "【更新】知名度が上がらないのは、あなたの会社のせいではない——順序を間違えているだけです | ベレネッツ",
+    "description": "知名度が上がらない原因を、広告の量ではなく取り組みの順序から考える記事の公開情報。ベレネッツが、企業ブランディングの経験から体系化したアプローチをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/news/newcolumn09232025/": {
+    "title": "コラム「既存顧客5000人を活かす、保険会社設立という新規事業の勝ち筋」が公開されました | ベレネッツ",
+    "description": "既存顧客を持つ企業の新規事業として、保険会社の設立を考えるコラムの公開情報。少額短期保険事業の可能性と、顧客基盤を活かす視点をご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/news/printcenter/": {
+    "title": "プリントセンター（名刺/封筒/印刷物）のお客様へ | ベレネッツ",
+    "description": "プリントセンターで名刺・封筒・印刷物の増刷をご依頼のお客様へ。メールの受信環境変更に伴い、返信が届いていない場合のご連絡方法をご案内します。",
+    "image": "/assets/hero.jpg",
+    "type": "Article",
+    "service": false
+  },
+  "/overview/message/": {
+    "title": "代表メッセージ｜平松誠一 | ベレネッツ",
+    "description": "株式会社ベレネッツ代表取締役・平松誠一からのメッセージ。顧客の認識をつくるブランディングと、企業の価値を伝える取り組みへの想いをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "AboutPage",
+    "service": false
+  },
+  "/overview/unique_branding/": {
+    "title": "ブランディングが向き合う経営課題 | ベレネッツ",
+    "description": "認知、価格競争、集客、採用など、企業の経営課題をブランディングの視点で捉え直します。ベレネッツが考える、隠れた価値を顧客の選ぶ理由へ変えるアプローチをご紹介します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/privacy-policy/": {
+    "title": "プライバシーポリシー | ベレネッツ",
+    "description": "株式会社ベレネッツの個人情報保護方針をご案内します。個人情報の取得・利用・提供、安全管理、適切な取扱いに関する取り組みをご確認いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/specified_commercial_transactions/": {
+    "title": "特定商取引法に関する表示 | ベレネッツ",
+    "description": "株式会社ベレネッツの特定商取引法に関する表示です。事業者情報、連絡先、お取引に関する掲載事項をご確認いただけます。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/sitemap/": {
+    "title": "サイトマップ | ベレネッツ",
+    "description": "ベレネッツのサイトマップ。事業・サービス、支援事例、会社情報、ニュース、コラム、お問い合わせなど、サイト内の各ページをご案内します。",
+    "image": "/assets/hero.jpg",
+    "type": "CollectionPage",
+    "service": false
+  },
+  "/404/": {
+    "title": "ページが見つかりません | ベレネッツ",
+    "description": "お探しのページが見つかりませんでした。ベレネッツのトップページまたはサイトマップから、目的のページをお探しください。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false
+  },
+  "/inquiry/thanks/": {
+    "title": "お問い合わせ送信完了 | ベレネッツ",
+    "description": "ベレネッツへのお問い合わせありがとうございます。担当者が内容を確認し、ご連絡いたします。送信後の流れと連絡先をご案内します。",
+    "image": "/assets/hero.jpg",
+    "type": "WebPage",
+    "service": false,
+    "noindex": true
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "checked_on": "2026-10-05",
+  "clients": {
+    "ASKUL": {
+      "market": "prime",
+      "legal_name": "アスクル株式会社",
+      "stock_code": "2678",
+      "source": "https://www.askul.co.jp/corp/company/overview/",
+      "caption": ""
+    },
+    "ibis": {
+      "market": "growth",
+      "legal_name": "株式会社アイビス",
+      "stock_code": "9343",
+      "source": "https://www.ibis.ne.jp/ir/stock/",
+      "caption": ""
+    },
+    "ショクブン": {
+      "market": "standard",
+      "legal_name": "株式会社ショクブン",
+      "stock_code": "9969",
+      "source": "https://shokubun.co.jp/company/history.html",
+      "caption": ""
+    },
+    "雪印メグミルク": {
+      "market": "prime",
+      "legal_name": "雪印メグミルク株式会社",
+      "stock_code": "2270",
+      "source": "https://www.meg-snow.com/ir/stockinformation/stock/",
+      "caption": ""
+    },
+    "LIXIL": {
+      "market": "prime",
+      "legal_name": "株式会社LIXIL",
+      "stock_code": "5938",
+      "source": "https://www.lixil.com/jp/investor/share/infor.html",
+      "caption": ""
+    },
+    "FUJI": {
+      "market": "prime",
+      "legal_name": "株式会社FUJI",
+      "stock_code": "6134",
+      "source": "https://www.fuji.co.jp/ir/faq.html",
+      "caption": ""
+    },
+    "MARUHA NICHIRO": {
+      "market": "prime",
+      "legal_name": "Umios株式会社（旧マルハニチロ株式会社）",
+      "stock_code": "1333",
+      "source": "https://www.umios.com/jp/corporate/ir/governance/pdf/20260401_corporate_governance.pdf",
+      "caption": "現：Umios株式会社"
+    },
+    "朝日インテック株式会社": {
+      "market": "prime",
+      "legal_name": "朝日インテック株式会社",
+      "stock_code": "7747",
+      "source": "https://ir.asahi-intecc.co.jp/ja/ir/stock/stockinfo.html",
+      "caption": ""
+    },
+    "LVN": {
+      "market": "growth",
+      "legal_name": "リビン・テクノロジーズ株式会社",
+      "stock_code": "4445",
+      "source": "https://www.lvn.co.jp/ir/stock/",
+      "caption": ""
+    }
+  },
+  "notes": [
+    "東証上場企業本人の市場区分のみを表示。親会社の市場区分は子会社のロゴに付けない。",
+    "エナリスは2019年3月に上場廃止。https://www.eneres.co.jp/history",
+    "マルハニチロは2026年3月1日にUmiosへ商号変更。https://www.umios.com/jp/corporate/ir/faq/"
+  ]
+}
