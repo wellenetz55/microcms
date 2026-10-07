@@ -5,6 +5,10 @@
  microCMSサービスID：wellenetz
  GitHub：https://github.com/wellenetz55/microcms
  Git SSH：git@github.com:wellenetz55/microcms.git
+ エックスサーバーの接続ホスト：sv16214.xserver.jp
+ SSHユーザー（サーバーID）：order
+ SSH：有効（ユーザー確認済み）
+ 公開先候補：/home/order/wellenetz.co.jp/public_html（接続後に確認）
 microCMSのnews（新着情報）・column（コラム）APIを作成済みです。
 両APIにtitle/body/description/coverを設定済み（title/bodyは必須）。
 サイト生成コード・CMS連携コード・画像・動画・ActionsをGitHubへ配置済みです。
@@ -19,6 +23,16 @@ microCMSのGET専用キーをGitHub Secretsに登録済みです。コードに�
 実行結果：https://github.com/wellenetz55/microcms/actions/runs/37559569244
 現時点のCMS記事は0件です。実記事・実画像の公開運用は別途確認が必要です。
 Webhook、エックスサーバー配信は未設定／未検証です。
+XSERVER_HOST、XSERVER_USER、CMS_DEPLOY_ENABLED=falseをGitHubへ登録済み。
+SSH接続口（10022）への到達を確認済み。秘密鍵・パスフレーズはGitHub Secretsへ登録済みです。
+手動ワークフロー「Check Xserver SSH connection」で、サーバーを書き換えずに
+認証・公開先候補・Pythonバージョン・rsyncの有無を確認できます。
+2026-10-07：秘密鍵の復号は成功しています。
+暗号化PEM鍵をSSHエージェントと対応付ける公開鍵ファイルを実行中だけ生成するよう修正済み。
+最新の接続確認はタイムアウトで停止しました。アクセス制限の設定状況を確認待ちです。
+公開先・Python・rsyncは未確認です。自動配信はfalseのままです。
+最新の確認：https://github.com/wellenetz55/microcms/actions/runs/37561694132
+ホスト鍵は初回取得値を固定しています。別経路との照合は未実施です。
 CMS_DEPLOY_ENABLEDをtrueにしない限り、自動配信は実行されません。
 
 1. 仕組み
@@ -77,23 +91,26 @@ Settings → Secrets and variables → Actions
 Repository variables:
  MICROCMS_SERVICE_DOMAIN = wellenetz（設定済みの既定値。変数登録は省略可能）
  CMS_DEPLOY_ENABLED = false（最初は生成とダウンロードだけ）
- XSERVER_HOST = サーバーID.xsrv.jp（または案内されたホスト）
- XSERVER_USER = サーバーID
- XSERVER_PUBLIC_DIR = /home/サーバーID/wellenetz.co.jp/public_html
+ XSERVER_HOST = sv16214.xserver.jp
+ XSERVER_USER = order
+ XSERVER_PUBLIC_DIR = /home/order/wellenetz.co.jp/public_html
    ※実際の絶対パスをサーバーで確認して設定。上記は記入例です。
 
 Repository secrets:
  MICROCMS_API_KEY = GET専用のキー
- XSERVER_SSH_PRIVATE_KEY = 公開用SSH秘密鍵（自動接続用）
- XSERVER_KNOWN_HOSTS = 検証済みのSSHホスト公開鍵エントリー
+ XSERVER_SSH_PRIVATE_KEY = 公開用SSH秘密鍵（自動接続用。order.key登録済み）
+ XSERVER_SSH_PASSPHRASE = 上記秘密鍵のパスフレーズ（GitHubへ直接入力）
+ XSERVER_KNOWN_HOSTS = 接続先SSHホスト公開鍵エントリー（初回取得値を登録済み）
    [ホスト名]:10022 ssh-ed25519 ... 等、実際に検証したエントリーを登録。
    初回取得した値は、管理者が信頼できる経路で指紋を確認してください。
    ホスト鍵検証を無効にする運用にはしません。
 
 Settings → Environments で production を作成します。
 必要なら承認者を設定できます（GitHubプランによる制限あり）。
-SSHキーはこのサイト配信用に分け、パスフレーズ入力を要しない自動接続用とし、
-秘密鍵はSecretsのみに保存してください。鍵作成・権限付与は管理者が行います。
+SSH秘密鍵・パスフレーズはSecretsのみに保存してください。
+パスフレーズ付き鍵は、実行中だけSSHエージェントへ読み込みます。
+終了時にエージェントを停止し、鍵と補助ファイルを削除します。
+鍵作成・権限付与は管理者が行います。
 
 4. エックスサーバーの準備
 サーバーパネルでSSHを有効にし、対応する公開鍵を登録。
