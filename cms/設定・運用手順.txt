@@ -8,6 +8,8 @@
  エックスサーバーの接続ホスト：sv16214.xserver.jp
  SSHユーザー（サーバーID）：order
  SSH：有効（ユーザー確認済み）
+ SSH国外アクセス制限：OFF（ユーザー確認済み）
+ SSHのIPアドレス制限：未設定（ユーザー確認済み）
  公開先候補：/home/order/wellenetz.co.jp/public_html（接続後に確認）
 microCMSのnews（新着情報）・column（コラム）APIを作成済みです。
 両APIにtitle/body/description/coverを設定済み（title/bodyは必須）。
@@ -29,9 +31,11 @@ SSH接続口（10022）への到達を確認済み。秘密鍵・パスフレー
 認証・公開先候補・Pythonバージョン・rsyncの有無を確認できます。
 2026-10-07：秘密鍵の復号は成功しています。
 暗号化PEM鍵をSSHエージェントと対応付ける公開鍵ファイルを実行中だけ生成するよう修正済み。
-最新の接続確認はタイムアウトで停止しました。アクセス制限の設定状況を確認待ちです。
+国外アクセス制限OFF・IPアドレス制限未設定をユーザー確認済みです。
+一部の試行はタイムアウト、到達した試行ではサーバーが公開鍵を受け入れた直後に
+Connection closedとなります。SSHログイン完了前のため、管理画面で接続情報を確認待ちです。
 公開先・Python・rsyncは未確認です。自動配信はfalseのままです。
-最新の確認：https://github.com/wellenetz55/microcms/actions/runs/37561694132
+最新の確認：https://github.com/wellenetz55/microcms/actions/runs/37562699786
 ホスト鍵は初回取得値を固定しています。別経路との照合は未実施です。
 CMS_DEPLOY_ENABLEDをtrueにしない限り、自動配信は実行されません。
 
