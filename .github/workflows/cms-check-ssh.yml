@@ -41,9 +41,16 @@ jobs:
           if not re.fullmatch(r'[A-Za-z0-9.-]+',host) or not re.fullmatch(r'[A-Za-z0-9_-]+',user):
               raise SystemExit('Invalid SSH host or user')
           runner=pathlib.Path(os.environ['RUNNER_TEMP'])
-          ssh=['ssh','-p','10022','-i',str(runner/'xserver.key'),'-o','BatchMode=yes','-o','IdentitiesOnly=yes','-o','ConnectTimeout=15','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+str(runner/'xserver.known_hosts')]
+          ssh=['ssh','-v','-p','10022','-i',str(runner/'xserver.key'),'-o','BatchMode=yes','-o','IdentitiesOnly=yes','-o','ConnectTimeout=15','-o','StrictHostKeyChecking=yes','-o','UserKnownHostsFile='+str(runner/'xserver.known_hosts')]
           remote_script="import json, os, pathlib, shutil, sys\nhome=pathlib.Path.home()\nroot=home/'wellenetz.co.jp'/'public_html'\nresult={'home':str(home),'public_directory':str(root.resolve()),'public_directory_exists':root.is_dir(),'python_version':sys.version.split()[0],'rsync_available':bool(shutil.which('rsync')),'index_html_exists':(root/'index.html').is_file(),'index_php_exists':(root/'index.php').is_file(),'htaccess_exists':(root/'.htaccess').is_file(),'root_is_symlink':root.is_symlink()}\nprint(json.dumps(result,ensure_ascii=False,indent=2))\nif not root.is_dir() or not shutil.which('rsync') or sys.version_info < (3,8):\n    sys.exit(1)\n"
-          subprocess.run(ssh+[user+'@'+host,'python3 -c '+shlex.quote(remote_script)],check=True,timeout=45)
+          result=subprocess.run(ssh+[user+'@'+host,'python3 -c '+shlex.quote(remote_script)],capture_output=True,text=True,timeout=45)
+          print(result.stdout)
+          if result.returncode:
+              diagnostic_markers=('Offering public key:','Server accepts key:','no mutual signature','Authentications that can continue:','sign_and_send_pubkey:','Permission denied','Host key verification failed','Connection timed out','Connection refused','identity file ','agent returned')
+              for line in result.stderr.splitlines():
+                  if any(marker in line for marker in diagnostic_markers):
+                      print(line)
+              raise SystemExit('SSH verification failed; no server files were changed')
           PYTHON
       - name: Remove temporary credentials
         if: always()
