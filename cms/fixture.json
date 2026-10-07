@@ -1,0 +1,4 @@
+{
+  "news": [{"id":"cms-demo-news","title":"【動作確認用】新着情報の表示サンプル","publishedAt":"2026-10-07T09:00:00+09:00","revisedAt":"2026-10-07T09:00:00+09:00","description":"CMS連携の動作確認用です。本番には公開されません。","cover":{"url":"https://images.microcms-assets.io/demo/cover.jpg"},"body":"<h2>管理画面から情報を更新</h2><p>タイトル・本文・画像を登録すると、既存のサイトデザインで記事を生成します。</p><p><a href='/column/cms-demo-column/'>コラムのサンプルを見る</a></p>"}],
+  "column": [{"id":"cms-demo-column","title":"【動作確認用】コラムの表示サンプル","publishedAt":"2026-10-07T09:00:00+09:00","description":"画像もエックスサーバーへ保存する構成の確認用記事です。","body":"<h2>公開後はサイト側の画像を表示</h2><p>このサンプルでは既存のサイト画像を使用しています。</p><figure><img src='https://images.microcms-assets.io/demo/cover.jpg' alt='ブランディングについて話し合うイメージ'><figcaption>写真とキャプション</figcaption></figure><h2>価値を、伝わる言葉に。</h2><ul><li>本文・見出し・箇条書き</li><li>記事ごとのOGPと構造化データ</li></ul>"}]
+}
