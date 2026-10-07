@@ -1,231 +1,132 @@
-ベレネッツ：microCMS → 静的HTML・画像 → エックスサーバー
-作成日：2026-10-07
+ベレネッツ：microCMS → GitHubで生成 → エックスサーバーがHTTPS取得
+更新日：2026-10-07
 
-指定済み接続先
- microCMSサービスID：wellenetz
- GitHub：https://github.com/wellenetz55/microcms
- Git SSH：git@github.com:wellenetz55/microcms.git
- エックスサーバーの接続ホスト：sv16214.xserver.jp
- SSHユーザー（サーバーID）：order
- SSH：有効（ユーザー確認済み）
- SSH国外アクセス制限：OFF（2026-10-07 ユーザー承認後に変更、管理画面で確認）
- SSHのIPアドレス制限：OFF（2026-10-07 管理画面で確認）
- 公開先：/home/order/wellenetz.co.jp/public_html（SSHで存在確認済み）
-microCMSのnews（新着情報）・column（コラム）APIを作成済みです。
-両APIにtitle/body/description/coverを設定済み（title/bodyは必須）。
-サイト生成コード・CMS連携コード・画像・動画・ActionsをGitHubへ配置済みです。
-GitHub Actionsのサンプル生成テストが成功しました（2026-10-07）。
-実行結果：https://github.com/wellenetz55/microcms/actions/runs/37559117023
-本番配信ジョブはスキップされています。
+■ 現在の構成
+microCMS：wellenetz.microcms.io
+GitHub：https://github.com/wellenetz55/microcms（公開リポジトリ）
+公開先：https://www.wellenetz.co.jp/
+公開フォルダ：/home/order/wellenetz.co.jp/public_html
+取得プログラム：/home/order/.wellenetz-cms-pull/（権限700、公開フォルダ外）
+サーバーのSSH国外アクセス制限：ON。自動更新ではSSH接続を使いません。
+サーバー標準Python 3.6.8で、取得・検証・反映・復旧の専用テスト10件が成功しました。
+GitHub側はPython 3.12で記事取得・サイト生成・全19件のテストを行います。
 
-現状
-ローカルとGitHub上で、サンプル記事を含む生成・検証を確認済みです。
-microCMSのGET専用キーをGitHub Secretsに登録済みです。コードには含めません。
-実API認証・公開データ取得・サイト生成がGitHub Actionsで成功しました。
-実行結果：https://github.com/wellenetz55/microcms/actions/runs/37559569244
-現時点のCMS記事は0件です。実記事・実画像の公開運用は別途確認が必要です。
-Webhook、エックスサーバー配信は未設定／未検証です。
-XSERVER_HOST、XSERVER_USER、CMS_DEPLOY_ENABLED=falseをGitHubへ登録済み。
-SSH接続口（10022）への到達を確認済み。秘密鍵・パスフレーズはGitHub Secretsへ登録済みです。
-手動ワークフロー「Check Xserver SSH connection」で、サーバーを書き換えずに
-認証・公開先候補・Pythonバージョン・rsyncの有無を確認できます。
-2026-10-07：秘密鍵の復号は成功しています。
-暗号化PEM鍵をSSHエージェントと対応付ける公開鍵ファイルを実行中だけ生成するよう修正済み。
-2026-10-07 管理画面で国外アクセス制限ONを確認し、ユーザー承認後OFFへ変更しました。
-GitHub Actionsから公開鍵認証でのSSHログインに成功しました。
-確認結果：https://github.com/wellenetz55/microcms/actions/runs/37563801180
-公開先 /home/order/wellenetz.co.jp/public_html と rsync が存在します。
-index.htmlあり、index.phpなし、公開先直下の.htaccessなし、公開先はsymlinkではありません。
-標準python3は3.6.8です。配信処理の要件（3.8以上）を満たさないため、
-SSH認証は成功しましたが、要件確認ジョブは失敗しています。
-標準的な配置先を読み取り確認しましたが、Python 3.8以上は検出できませんでした。
-環境確認：https://github.com/wellenetz55/microcms/actions/runs/37563950028
-自動配信の有効化前に、配信プログラムとサーバー実行環境の互換性対応が必要です。
-本番ファイルは変更していません。自動配信はfalseのままです。
-ホスト鍵は初回取得値を固定しています。2026-10-07、管理画面の公式表示と照合済みです。
-ED25519: SHA256:HQ671CkOkdg23MYPPNtNFa/eeyAy+D81vdqUp/LVhEo（完全一致）
-CMS_DEPLOY_ENABLEDをtrueにしない限り、自動配信は実行されません。
+■ 有効化状況
+GitHub：CMS_RELEASE_ENABLED=true。公開用ZIPの生成・Releases保存を有効化済み。
+サーバー：config.jsonのenabled=false。本番への適用は無効です。
+サーバーCron：取得検証後にOFFへ停止済み。本番Cronはまだ有効にしません。
+microCMS：news/columnを作成済み、公開記事は0件（初回確認時）。Webhookは未設定。
+本番ファイルの初回反映・Webhook有効化には、生成物と更新対象の確認が必要です。
+サーバーのPython更新や国外アクセス制限の解除は不要です。
 
-1. 仕組み
-microCMSで新着情報・コラムを公開／更新／非公開化
- → WebhookでGitHub Actionsを起動
- → 公開中の記事を全件取得（100件ずつ。下書きキーは使いません）
- → 本文画像・アイキャッチ画像を取得して /assets/cms/ に保存
- → TOPのお知らせ、一覧、詳細、OGP、構造化データ、サイトマップを生成
- → 完成した一式をSSHでエックスサーバーへ転送
- → チェックサム検証後、公開ファイルを更新
-閲覧時にはmicroCMSのAPIを使わず、画像もエックスサーバーから配信します。
-公開後も静的HTMLが残るので、CMSの障害中も既存記事を表示できます。
-公開反映は処理完了後です。処理待ち／画像数によって数分以上かかる場合があります。
+■ 仕組み
+1. microCMSで新着情報・コラムを公開／更新／非公開化。
+2. WebhookからGitHub Actions「Build microCMS for Xserver pull」を起動。
+3. 公開中の記事を取得し、本文画像・アイキャッチをダウンロードして静的HTMLを生成。
+4. テスト・ハッシュ検証が成功した公開用ファイルだけをwellenetz-site.zipにまとめる。
+5. GitHub Releasesへ下書きとしてZIPをアップロードし、完了後に公開する。
+6. エックスサーバーのCronが5分間隔で最新リリースをHTTPS取得。
+7. 取得元・GitHubのSHA-256・各ファイルのSHA-256・パスを検証し、公開ファイルを更新。
+閲覧時にmicroCMS APIは使いません。画像もエックスサーバーから配信します。
+反映時間はGitHubのビルド時間＋次のCronまで最大5分＋取得・反映時間です。
 
-2. microCMSの準備（2つともリスト形式API）
-APIエンドポイント：news（新着情報）、column（コラム）
-同じフィールド構成を使います。
+■ 取得元と権限
+取得元はwellenetz55/microcmsの正式リリースに固定しています。
+タグ形式：cms-production-<GitHub実行ID>-<試行番号>
+公開Releasesの取得にGitHubトークンは不要です。サーバーにはGitHub秘密情報を置きません。
+通信は証明書検証を有効にしたHTTPSのみ。GitHubのAPI・本体・正式配布先だけを許可します。
+GitHub APIが返すasset digest（sha256）と実データのハッシュを照合します。
+これはGitHubのリポジトリ権限とTLSを信頼する方式で、独立した電子署名ではありません。
+このためGitHubの書き込み権限とアカウント認証を適切に管理してください。
+ZIPに含まれるのは公開用HTML・画像等のみです。Pythonや設定ファイルをZIPから実行しません。
+サーバー用プログラムの更新は管理者がファイルマネージャ等から行います。
 
-フィールドID       種類                  必須
- title            テキストフィールド    はい
- body             リッチエディタ        はい
- description      テキストエリア        いいえ（SEO・SNS向け説明文）
- cover            画像                  いいえ（アイキャッチ兼OGP）
+GitHub Repository Secret：
+ MICROCMS_API_KEY（news/columnのGET専用。下書き全取得や書き込み権限は不要）
+GitHub Repository Variables：
+ MICROCMS_SERVICE_DOMAIN：省略時wellenetz
+ CMS_RELEASE_ENABLED：trueで公開用ZIPをReleasesへ保存
+旧SSH方式のSecrets・Variablesは現在の配信処理では使用しません。
+既存の診断用SSHワークフローは履歴用に残っています。通常運用では実行しません。
+旧CMS_DEPLOY_ENABLED=falseは残っていますが、新方式の制御には使いません。
+書き込み権限contents:writeは、GitHubのreleaseジョブにだけ設定しています。
 
-公開日時はmicroCMS標準のpublishedAt、更新日時はrevisedAtを使用します。
-URLは /news/コンテンツID/ または /column/コンテンツID/ です。
-IDには半角英数字・ハイフン・アンダースコアを使用し、公開後は変更しないでください。
-ID変更時はURLも変わります。自動301リダイレクトは未実装です。
-description省略時は本文から短い説明文を生成します。
-cover省略時は既存の共通OGP画像を使います。
-画像はmicroCMSにアップロードしたPNG/JPEG/WebP/GIFに対応します。
-外部画像の直貼り、SVG、iframe、スクリプト埋め込みは対応しません。
-PDFや動画を使う場合はエックスサーバーに別途置き、本文からリンクしてください。
-画像は1ファイル25MBまで。リッチエディタ内の色・サイズなどの任意スタイルは
-サイト側のデザインに統一します。表・見出し・リスト・引用・リンクに対応します。
-画像の代替テキスト（alt）は本文画像で設定してください。
+■ microCMSの記事入力
+API：news（新着情報）／column（コラム）。いずれもリスト形式。
+ title：テキスト、必須
+ body：リッチエディタ、必須
+ description：テキストエリア、任意（SEO・SNS説明文）
+ cover：画像、任意（アイキャッチ・OGP）
+URLは /news/コンテンツID/ または /column/コンテンツID/。
+IDは半角英数字・ハイフン・アンダースコア。公開後に変えるとURLも変わります。
+公開日時・更新日時はmicroCMS標準項目を利用します。
+画像はmicroCMSへ登録したPNG/JPEG/WebP/GIF、1ファイル25MBまでです。
+外部画像直貼り、SVG、iframe、スクリプト埋め込みは取り込みません。
+PDF・動画は別途サーバーへ設置してリンクします。
+CMS本文の任意の色・サイズはサイトの共通デザインに統一します。
 
-APIキー
-news/columnのGETを許可する読み取り専用キーを使います。
-既存のdefaultキーがGETのみであることを確認済みです。
-「下書きコンテンツの全取得」権限は有効にしないでください。
-キーをHTML、公開リポジトリ、チャットへ貼らないでください。
-プログラムはX-MICROCMS-API-KEYヘッダーで認証します。
+■ GitHubで手動生成する
+Actions → Build microCMS for Xserver pull → Run workflow
+ source=sample：サンプル検証のみ。noindexで、Releasesには保存しません。
+ source=published：microCMSの公開記事を取得。CMS_RELEASE_ENABLED=trueならRelease作成。
+実行が失敗した場合、新しい完全なリリースは公開しません。既存サイトは維持されます。
+Artifactsのwellenetz-productionは従来どおり手動ダウンロードにも利用できます。
+公開リポジトリなので、ReleaseのZIPは誰でも取得可能です。公開用ファイルだけを入れます。
 
-3. GitHubの準備
-指定リポジトリ：https://github.com/wellenetz55/microcms
-現在のリポジトリは公開です。APIキーとSSH秘密鍵は必ずSecretsに保存してください。
-ZIP内 wellenetz-site フォルダの「中身」をリポジトリのルートに置きます。
-build.py、cms/、src/、dist/assets/、.github/workflows/ がルート直下です。
-隠しフォルダ .github も必ず含めてください。
-dist/assets の既存画像・CSS・JavaScript・動画も必要です。
-.env、秘密鍵、APIキーはコミットしないでください。
-Actionsワークフローはデフォルトブランチに置いてください。
+■ エックスサーバーへの設置
+公開フォルダ外の/home/order/.wellenetz-cms-pull/へ次を設置します：
+ pull.py、publish.py、config.json
+検証用：package_release.py、test_pull.py、verify_server.py
+config.jsonはcms/pull-config.example.jsonをコピーして使い、初期値enabled=falseを維持します。
+フォルダ権限700。ログ・状態・バックアップも公開フォルダ外に保存します。
 
-Settings → Secrets and variables → Actions
-Repository variables:
- MICROCMS_SERVICE_DOMAIN = wellenetz（設定済みの既定値。変数登録は省略可能）
- CMS_DEPLOY_ENABLED = false（最初は生成とダウンロードだけ）
- XSERVER_HOST = sv16214.xserver.jp
- XSERVER_USER = order
- XSERVER_PUBLIC_DIR = /home/order/wellenetz.co.jp/public_html
-   ※実際の絶対パスをサーバーで確認して設定。上記は記入例です。
+本番を変更しない確認コマンド：
+ /usr/bin/python3 -B /home/order/.wellenetz-cms-pull/pull.py --config /home/order/.wellenetz-cms-pull/config.json
 
-Repository secrets:
- MICROCMS_API_KEY = GET専用のキー
- XSERVER_SSH_PRIVATE_KEY = 公開用SSH秘密鍵（自動接続用。order.key登録済み）
- XSERVER_SSH_PASSPHRASE = 上記秘密鍵のパスフレーズ（GitHubへ直接入力）
- XSERVER_KNOWN_HOSTS = 接続先SSHホスト公開鍵エントリー（初回取得値を登録済み）
-   [ホスト名]:10022 ssh-ed25519 ... 等、実際に検証したエントリーを登録。
-   初回取得した値は、管理者が信頼できる経路で指紋を確認してください。
-   ホスト鍵検証を無効にする運用にはしません。
+有効化後の本番コマンド（config.jsonのenabled=trueが別途必要）：
+ /usr/bin/python3 -B /home/order/.wellenetz-cms-pull/pull.py --config /home/order/.wellenetz-cms-pull/config.json --apply > /home/order/.wellenetz-cms-pull/update.log 2>&1
+Cronの「分」=*/5、「時・日・月・曜日」=*。設定状況ON。
+--applyとenabled=trueの両方がそろうまで本番ファイルは更新しません。
 
-Settings → Environments で production を作成します。
-必要なら承認者を設定できます（GitHubプランによる制限あり）。
-SSH秘密鍵・パスフレーズはSecretsのみに保存してください。
-パスフレーズ付き鍵は、実行中だけSSHエージェントへ読み込みます。
-終了時にエージェントを停止し、鍵と補助ファイルを削除します。
-鍵作成・権限付与は管理者が行います。
+■ 初回公開前の確認
+1. 最新の生成物をプレビューして、既存本番サイトとの差分を確認。
+2. サーバー全体のバックアップを管理者が取得。
+3. dry runで変更・削除件数を確認。既存の.htaccessやPHP優先表示にも注意。
+4. 公開承認後にenabled=trueと--applyのCronを有効化。
+5. 公開URLで新着情報・コラム・画像・フォーム・サイトマップを確認。
+6. microCMS Webhookを設定し、実際の記事公開からの一連の更新を確認。
 
-4. エックスサーバーの準備
-サーバーパネルでSSHを有効にし、対応する公開鍵を登録。
-ポート10022、公開鍵認証を使用します。
-python3（3.8以上）、rsyncが利用できることを確認してください。
-GitHub Actionsからの接続についてSSHのIP制限・国外アクセス制限を確認。
-接続できない場合は管理者と許可方法や固定IPランナーを検討します。
-むやみに制限をすべて解除しないでください。
+■ Webhook（未設定）
+newsとcolumnのAPI設定 → Webhook → GitHub Actions。
+リポジトリ所有者wellenetz55、リポジトリmicrocms、イベント名microcms_build。
+対象リポジトリに限定した専用GitHubトークンを使用し、必要権限は公式手順に従います。
+新しいトークンの発行・入力はユーザー自身が行います。チャットや公開コードには貼りません。
+公開・更新・公開終了・公開中記事を下書きに戻す・削除を通知対象にします。
+下書き保存では公開しません。Webhook内のdraftKeyは使用しません。
+Webhook未設定でも、Run workflowの手動実行は可能です。
 
-公開先の既存HTMLや.htaccessとの整合性は、初回の本番接続時に確認します。
-既存のWordPress/PHP、DirectoryIndex、rewriteが残っていると、静的HTMLより
-そちらが優先される場合があります。公開前に実URLで表示を確認してください。
-最初の移行前は、管理者がサーバー全体のバックアップを取得してください。
+■ 既存記事・失敗・復旧
+既存記事をCMSへ移す場合は同じIDを使い、cms/config.jsonのlegacy_overridesへURLを追加。
+指定なしで既存URLと衝突した場合は生成を停止します。
+CMSで非公開にした記事は、前回管理対象になっていた記事だけ削除します。
+手動PDF・.htaccessなど管理対象外のファイルは一括削除しません。
+共有画像は自動削除しません。公開用ファイルは同一パスにあるものを上書きします。
+取得・検証失敗時は本番へ適用せず、公開済みサイトを維持します。
+二重実行はロックで防止します。適用済みReleaseは再ダウンロードしません。
+適用済みReleaseの改変や、それより古いReleaseへの自動巻き戻しを拒否します。
+各ファイルは一時ファイルから置換。全サイト一括での原子的切替ではありません。
+バックアップはstate/publisher/backups/、途中更新の記録はstate/publisher/pending.jsonです。
+中断を検出した場合は自動再開せず停止します。管理者がpublish.pyの--rollbackで復旧します。
+停止する場合はCronをOFFにし、config.jsonをenabled=falseへ戻します。
 
-5. 初回確認 → 自動公開開始
- a. 最初にRun workflowのsource=sampleで接続不要の生成テストができます。
-    sample出力はnoindexです。本番にアップロードしないでください。
-    APIキーを登録後、CMS_DEPLOY_ENABLED=false のままGitHub Actionsの
-    「Publish microCMS to Xserver」→ Run workflowでsource=publishedを選び実行。
- b. 成功後、Artifactsのwellenetz-productionをダウンロード。
-    site/ が公開用ファイル。manifest.jsonやプログラム自体は公開不要です。
- c. 初回は管理者が生成物と公開先を確認。
-    手動アップロードでも動作しますが、非公開記事の削除は手動管理になります。
- d. SSH接続・公開先を確認してCMS_DEPLOY_ENABLED=trueに変更。
-    次の実行から実際にエックスサーバーへ反映されます。
- e. 実URLで新着情報・コラム・画像・フォーム・サイトマップを確認。
- f. 以下のWebhookを設定して、記事更新時の自動処理を開始。
-
-6. microCMSのWebhook
-newsとcolumnのAPI設定 → Webhook → GitHub Actions
-使用するリポジトリ所有者名、リポジトリ名、専用GitHubトークンを登録。
-トリガーイベント名：microcms_build
-トークンは対象リポジトリに限定したものを使い、必要権限は公式手順に従います。
-トークンはmicroCMS設定欄にだけ登録し、チャットへ貼らないでください。
-
-通知タイミング：
- ・公開・更新（管理画面／予約公開など、使う公開方法）
- ・公開終了／公開中記事を下書きに戻す（予約終了を使う場合はそれも）
- ・削除
-下書き保存だけでは公開しません。WebhookにdraftKeyが含まれても使用しません。
-Webhookを逃した場合はRun workflowで全件同期できます。
-失敗通知はGitHubのActions通知設定を利用してください。
-
-7. 既存記事をCMSへ移す場合
-現在の既存記事はそのまま維持され、新しいCMS記事を追加できます。
-過去の記事はCMSへ自動登録していません。
-同じURLで過去記事を移行する際は、同じコンテンツIDで本文を登録し、
-cms/config.jsonのlegacy_overridesへ該当URLを追加してください。
-例：config.jsonのservice_domainはそのまま残し、legacy_overridesの配列へ
- "/news/example/" を追加。
-移行後はこの設定を残します。CMSで非公開にした時に旧記事が復活しないためです。
-同じURLが衝突し、legacy_overridesにない場合は配信を停止します。
-
-8. 失敗時と非公開化
-記事取得・画像取得・ページ生成・チェックサム検証の失敗時は配信しません。
-以前に配信したCMS記事のうち、今回公開されていない記事のindex.htmlを削除します。
-空になった記事ディレクトリは削除しますが、それ以外のファイルは削除しません。
-配信先の.htaccess、手動設置PDF、フォーム等は一括削除しません。
-同じパスのサイト生成ファイルは上書きします。
-画像は削除済み記事でも他の箇所から参照される可能性があるため自動削除しません。
-
-更新前のファイルはpublic_htmlの外にある
- .wellenetz-cms-public_html/backups/<ID>/
-へ保存します（公開先がプレビュー用なら末尾はそのフォルダ名）。
-書き込み中の通常のエラーは自動復元します。
-プロセス強制停止などでpending.jsonが残った場合、次の配信を止めます。
-管理者が次のコマンドで復元してから再実行してください。
- python3 cms/publish.py --release <生成物フォルダ> --root <公開先> --state <状態保存先> --rollback
-※この復元操作では--releaseは必須引数ですが内容は参照しません。
-
-バックアップは自動削除しません。管理者が容量を確認し、必要な世代を保管。
-更新はファイル単位の置き換えです。全ページが完全に同時に切り替わる構成ではありません。
-完了済み配信の差し戻しは、以前のArtifactを同じdeploy.pyで再配信します。
-復元・差し戻しでも現在のCMSの記事との整合性を確認してください。
-
-9. ローカルの確認（Python標準ライブラリだけで動作）
-cd wellenetz-site
-python3 -m unittest discover -s cms/tests -v
-python3 cms/pipeline.py --fixture --output .cms-output/demo
-python3 -m http.server 4174 --bind 127.0.0.1 --directory .cms-output/demo/site
-http://127.0.0.1:4174/news/cms-demo-news/
-http://127.0.0.1:4174/column/cms-demo-column/
-出力先が存在する場合は上書きしません。別名を指定してください。
-サンプル出力はnoindex・解析タグなし。自動配信プログラムもサンプルを拒否します。
-本番取得は環境変数MICROCMS_SERVICE_DOMAIN／MICROCMS_API_KEYを設定し、
- --fixtureを付けずに実行します。APIキーをコマンド引数に書かないでください。
-
-本番リリース生成：
- python3 cms/pipeline.py --output .cms-output/release-001
-SSHの転送先確認（公開ファイルを変更しないドライラン）：
- python3 cms/deploy.py --release .cms-output/release-001
-実際の公開：
- python3 cms/deploy.py --release .cms-output/release-001 --apply
-XSERVER_KEY_FILEとXSERVER_KNOWN_HOSTS_FILEにローカルのファイルパスを指定します。
-
-10. 対応範囲
-実装：公開記事・画像取得、静的生成、記事SEO、更新Webhook用workflow、SSH配信、
-非公開反映、整合性検査、通常エラーの復元、ローカルサンプル。
-未実施：アカウント接続、実記事の移行、本番サーバーでの配信・復元試験。
-未実装：管理画面の下書きプレビュー、記事ID変更時の自動リダイレクト。
-CMSとGitHubの利用上限・料金は実際のプランと使用量をご確認ください。
-
-参考（公式）
-https://document.microcms.io/content-api/get-list-contents
-https://document.microcms.io/manual/webhook-setting
-https://help.microcms.io/ja/knowledge/webhook-github-actions-settings
-https://www.xserver.ne.jp/manual/man_server_ssh.php
+■ 検証履歴
+旧SSHの接続確認成功：https://github.com/wellenetz55/microcms/actions/runs/37563801180
+GitHubホスト鍵は管理画面の公式フィンガープリントと照合済みでした。
+新方式ではSSHを利用しません。国外アクセス制限ONを維持しています。
+ローカル：全19テスト成功。
+実サーバー：Python 3.6.8 / OpenSSL 1.1.1k、専用10テスト成功、GitHub API HTTPS取得成功。
+新方式の生成・Release作成成功：https://github.com/wellenetz55/microcms/actions/runs/37565057425
+実サーバーでの実データ取得・SHA-256・ZIP検証・ドライラン成功。
+対象リリース：cms-production-37565057425-1
+本番反映時の変更予定：102ファイル、CMS記事削除0件（検証時点）。
+検証完了後、CronはOFF。config.jsonのenabled=falseを維持。
