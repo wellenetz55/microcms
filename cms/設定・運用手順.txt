@@ -5,19 +5,21 @@
  microCMSサービスID：wellenetz
  GitHub：https://github.com/wellenetz55/microcms
  Git SSH：git@github.com:wellenetz55/microcms.git
-接続先をローカル設定へ反映済み。新リポジトリは空であることを確認済み。
-ChromeのGitHubログインを確認済みです。
 microCMSのnews（新着情報）・column（コラム）APIを作成済みです。
 両APIにtitle/body/description/coverを設定済み（title/bodyは必須）。
-GitHubのファイルアップロードは、Chrome拡張機能の
-「ファイルのURLへのアクセスを許可する」を有効化済み。コードを配置中です。
-APIキー・Webhook・エックスサーバー配信は未設定です。
+サイト生成コード・CMS連携コード・画像・動画・ActionsをGitHubへ配置済みです。
+GitHub Actionsのサンプル生成テストが成功しました（2026-10-07）。
+実行結果：https://github.com/wellenetz55/microcms/actions/runs/37559117023
+本番配信ジョブはスキップされています。
 
 現状
-連携プログラムとGitHub Actions設定を作成済みです。
-サンプル記事・画像による生成とローカル配信を検証しました。
-microCMS、GitHub、エックスサーバー本番への接続・自動公開は未設定／未検証です。
-現在のサイトを勝手に切り替える設定にはしていません。
+ローカルとGitHub上で、サンプル記事を含む生成・検証を確認済みです。
+microCMSのGET専用キーをGitHub Secretsに登録済みです。コードには含めません。
+実API認証・公開データ取得・サイト生成がGitHub Actionsで成功しました。
+実行結果：https://github.com/wellenetz55/microcms/actions/runs/37559569244
+現時点のCMS記事は0件です。実記事・実画像の公開運用は別途確認が必要です。
+Webhook、エックスサーバー配信は未設定／未検証です。
+CMS_DEPLOY_ENABLEDをtrueにしない限り、自動配信は実行されません。
 
 1. 仕組み
 microCMSで新着情報・コラムを公開／更新／非公開化
@@ -55,14 +57,15 @@ PDFや動画を使う場合はエックスサーバーに別途置き、本文�
 画像の代替テキスト（alt）は本文画像で設定してください。
 
 APIキー
-news/columnのGETだけを許可する専用キーを作成。
+news/columnのGETを許可する読み取り専用キーを使います。
+既存のdefaultキーがGETのみであることを確認済みです。
 「下書きコンテンツの全取得」権限は有効にしないでください。
 キーをHTML、公開リポジトリ、チャットへ貼らないでください。
 プログラムはX-MICROCMS-API-KEYヘッダーで認証します。
 
 3. GitHubの準備
 指定リポジトリ：https://github.com/wellenetz55/microcms
-非公開のまま利用できます。既存ファイルがある場合は確認してから統合してください。
+現在のリポジトリは公開です。APIキーとSSH秘密鍵は必ずSecretsに保存してください。
 ZIP内 wellenetz-site フォルダの「中身」をリポジトリのルートに置きます。
 build.py、cms/、src/、dist/assets/、.github/workflows/ がルート直下です。
 隠しフォルダ .github も必ず含めてください。
