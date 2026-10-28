@@ -120,3 +120,8 @@
 
 /* CMS article content: retains the existing typography and responsive layout. */
 .cms-article{max-width:850px;margin-inline:auto;overflow-wrap:anywhere}.cms-article img{display:block;max-width:100%;height:auto;border-radius:4px;margin:28px auto}.cms-article .cms-cover{width:100%;margin:0 0 40px}.cms-date{font-size:14px;color:var(--muted,#65716f)}.cms-article figure{margin:32px 0}.cms-article figcaption{font-size:13px;text-align:center;color:#65716f}.cms-article table{display:block;max-width:100%;overflow-x:auto;border-collapse:collapse;margin:28px 0}.cms-article th,.cms-article td{border:1px solid #dce2df;padding:12px;min-width:100px}.cms-article pre{overflow:auto;padding:20px;background:#f2f5f3}.cms-article blockquote{border-left:3px solid #df8861;margin:28px 0;padding:8px 24px}
+
+/* Homepage reason-AI banner: keep in CMS source. */
+.hero-reason-banner{display:block;position:absolute;z-index:1;right:max(var(--gutter),calc((100% - var(--max))/2 + var(--gutter)));bottom:100px;width:clamp(280px,27vw,360px);border:1px solid #ffffffcc;border-radius:6px;background:#fff;box-shadow:0 10px 32px #071d2c38;overflow:hidden;transition:transform .2s,box-shadow .2s}.hero-reason-banner img{width:100%;height:auto}.hero-reason-banner:hover{transform:translateY(-3px);box-shadow:0 14px 35px #071d2c55}.hero-reason-banner:focus-visible{outline:3px solid #ffb38e;outline-offset:5px}
+@media(max-width:900px){.hero-reason-banner{position:relative;right:auto;bottom:auto;width:min(340px,100%);margin-top:26px}.hero .hero-bottom:after{width:22%}}
+@media(max-width:600px){.hero-reason-banner{margin-top:23px}.hero .actions{margin-top:22px}.hero-content{padding-bottom:78px}}
