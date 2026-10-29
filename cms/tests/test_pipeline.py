@@ -86,6 +86,31 @@ class PipelineTests(unittest.TestCase):
                 self.assertIn('id="'+anchor+'"',reason)
             self.assertIn('.rai-session-support{',(site/stylesheet.lstrip('/')).read_text())
             self.assertNotIn('reason-ai-hero-grid',reason)
+            # A news refresh must retain the illustrated KinQR page and its isolated CSS.
+            kinqr=(site/'marketing/kinqr/index.html').read_text()
+            for anchor in ('how-to-use','management','signage'):
+                self.assertIn('id="'+anchor+'"',kinqr)
+            for image in ('kinqr-normal-map.png','kinqr-emergency-map.png','kinqr-scan.jpg',
+                          'kinqr-navigation.jpg','kinqr-management.jpg','kinqr-sign-normal.jpg',
+                          'kinqr-sign-emergency.jpg','kinqr-qr-comparison.jpg'):
+                self.assertIn('/assets/'+image,kinqr)
+                self.assertGreater((site/'assets'/image).stat().st_size,0)
+            self.assertRegex(kinqr,r'/assets/kinqr\.[a-f0-9]{12}\.css')
+            self.assertNotIn('/assets/kinqr.',home)
+            self.assertNotIn('/assets/kinqr.',reason)
+            from static_guard import verify
+            baseline=pipeline.ROOT/'cms/static-baseline.json'
+            verify(site,baseline)  # This build contains different CMS articles than the baseline.
+            for relative in ('overview/index.html','marketing/kinqr/index.html','assets/site.css'):
+                target=site/relative; original=target.read_bytes()
+                target.write_bytes(original+b' unexpected regression')
+                with self.assertRaisesRegex(ValueError,'Static protection stopped'):
+                    verify(site,baseline)
+                target.write_bytes(original)
+            target=site/'assets/kinqr-management.jpg'; original=target.read_bytes();target.unlink()
+            with self.assertRaisesRegex(ValueError,'kinqr-management.jpg'):
+                verify(site,baseline)
+            target.write_bytes(original)
             updates=re.search(r'<section[^>]+id="updates".*?</section>',home,re.S).group()
             self.assertLess(updates.index('/column/cms-demo-column/'),updates.index('/news/cms-demo-news/'))
             self.assertIn('2026.10.08',updates)
