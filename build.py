@@ -32,6 +32,11 @@ def page(path,title,body,en='',lead='',group='',hero=True,cta=True):
  ph=''
  if hero:ph='<div class="wrap"><nav class="breadcrumbs" aria-label="パンくず">'+a('/','HOME')+'<span>/</span>'+(a('/services/','事業内容')+'<span>/</span>' if group=='services' else '')+f'<span>{E(re.sub("<[^>]+>","",title))}</span></nav></div><section class="page-hero"><div class="wrap">'+eyebrow(en)+f'<h1>{title}</h1>'+(f'<p class="lead">{lead}</p>' if lead else '')+'</div></section>'
  html='<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><meta name="robots" content="noindex,nofollow"><title>'+E(re.sub('<[^>]+>','',title))+' | Wellenetz 株式会社ベレネッツ</title><meta name="description" content="'+E(re.sub('<[^>]+>','',lead or '伝わると惹き寄せるを創る。企業ブランディング・マーケティング・クリエイティブ制作を東京と名古屋から支援するベレネッツ。'))+'"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 fill=%27%23142d3a%27/%3E%3Cpath d=%27M5 9l5 14 6-10 6 10 5-14%27 fill=%27none%27 stroke=%27%23ff986a%27 stroke-width=%273%27/%3E%3C/svg%3E"><link rel="stylesheet" href="/assets/site.'+ASSET_VERSION+'.css"><script src="/assets/site.'+ASSET_VERSION+'.js" defer></script></head><body id="top"><a class="skip" href="#main">本文へスキップ</a>'+head+'<main id="main">'+ph+body+'</main>'+footer(cta)+'</body></html>'
+ # Page-specific styles never change the shared CSS/JS version or other pages.
+ if path=='/marketing/kinqr/':
+  version=hashlib.sha256((DIST/'assets/kinqr.css').read_bytes()).hexdigest()[:12]
+  shutil.copy2(DIST/'assets/kinqr.css',DIST/f'assets/kinqr.{version}.css')
+  html=html.replace('</head>',f'<link rel="stylesheet" href="/assets/kinqr.{version}.css"></head>')
  file=DIST/path.strip('/')/'index.html' if path!='/' else DIST/'index.html';file.parent.mkdir(parents=True,exist_ok=True);file.write_text(html);inventory.append({'path':path,'title':title,'group':group or en})
 services=[('/branding/','01 / BRANDING','ブランディング','隠れた価値を見つけ、「選ばれる理由」をつくる。'),('/marketing/','02 / MARKETING','マーケティング','価値が届く接点を設計し、顧客を惹き寄せる。'),('/creative/','03 / CREATIVE','クリエイティブ制作','戦略を、伝わるデザインと行動につながる体験へ。')]
 news=[p for p in sources if '/news/' in p['url'] and p['url'].rstrip('/')!='https://www.wellenetz.co.jp/news']
