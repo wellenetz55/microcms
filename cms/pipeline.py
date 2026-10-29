@@ -1,5 +1,6 @@
 """Fetch published microCMS articles and images, then build an isolated static release."""
 import argparse
+from static_guard import verify as verify_static_site
 import hashlib
 import json
 import os
@@ -218,6 +219,8 @@ def build(output, fixture=False, fetch=request):
         site = project/('dist' if fixture else 'dist-production')
         inventory = json.loads((project/'page-inventory.json').read_text())
         validate_site(site, inventory)
+        if not fixture:
+            verify_static_site(site, ROOT/'cms/static-baseline.json')
         release = tmp/'release'; release.mkdir(); shutil.move(str(site), release/'site')
         files = {p.relative_to(release/'site').as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in (release/'site').rglob('*') if p.is_file()}
         manifest = {'version':1,'fixture':fixture,'files':files,'cms_routes':routes,'legacy_overrides':sorted(overrides)}
