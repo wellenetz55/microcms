@@ -72,6 +72,20 @@ class PipelineTests(unittest.TestCase):
             self.assertGreater((site/image_path.lstrip('/')).stat().st_size,0)
             stylesheet=re.search(r'<link rel="stylesheet" href="([^"]+)"',home).group(1)
             self.assertIn('.hero-reason-banner{',(site/stylesheet.lstrip('/')).read_text())
+            # Preserve the complete service page when CMS news regenerates the site.
+            reason=(site/'branding/reason-ai/index.html').read_text()
+            for content in ('8週間で「言葉」に。', '8週間で、御社に残るもの。',
+                            '実際のベレネッツ担当者とのオンラインセッション',
+                            '【オプション】御社の「選ばれる理由」を知る、',
+                            'ベレネッツとの別途継続契約'):
+                self.assertIn(content,reason)
+            for image in ('reason-ai-diagnosis-screen-20261021.png','reason-ai-session-flow.png'):
+                self.assertIn('/assets/'+image,reason)
+                self.assertGreater((site/'assets'/image).stat().st_size,0)
+            for anchor in ('deliverables','screen','journey','support'):
+                self.assertIn('id="'+anchor+'"',reason)
+            self.assertIn('.rai-session-support{',(site/stylesheet.lstrip('/')).read_text())
+            self.assertNotIn('reason-ai-hero-grid',reason)
             updates=re.search(r'<section[^>]+id="updates".*?</section>',home,re.S).group()
             self.assertLess(updates.index('/column/cms-demo-column/'),updates.index('/news/cms-demo-news/'))
             self.assertIn('2026.10.08',updates)
