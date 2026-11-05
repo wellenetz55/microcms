@@ -4,6 +4,7 @@ No personal data is saved in browser storage.
 from html import escape
 
 FORMS = {
+    'reason-ai': ('選ばれる理由AI｜無料適合診断（45分）', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', '選ばれる理由AIの無料適合診断（45分・Zoom面談）についての専用窓口です。', '現在の課題や、無料適合診断で相談したいことをお聞かせください。'),
     'general': ('総合お問い合わせ', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', 'サービスに関するご相談やご質問をお聞かせください。', '現在の課題、ご相談したいこと、ご希望などをお聞かせください。'),
     'interview_requests': ('メディアのお問い合わせ', 'https://form.run/api/v1/r/z6gfj31qd67mbw7v6ft0800f', '取材・掲載など、メディアに関するお問い合わせをお聞かせください。', '媒体名、取材・掲載の概要、ご希望の日程などをお聞かせください。'),
     'instructor_requests': ('講師ご依頼', 'https://form.run/api/v1/r/fnc0lumimw3kjrehhrx7f6gl', '講演・研修などの講師ご依頼についてお聞かせください。', '講演・研修のテーマ、対象者、ご希望の日程・会場・開催形式などをお聞かせください。'),
@@ -22,6 +23,9 @@ def contact_form(kind):
 <form id="contact-inquiry-form" class="formrun" action="{escape(action, quote=True)}" method="post" accept-charset="UTF-8">
 <input type="hidden" name="お問い合わせ種別" value="{escape(title, quote=True)}">
 <div id="contact-fields">''']
+    if kind == 'reason-ai':
+        parts.append('''<input type="hidden" name="お問い合わせ元ページ" value="https://www.wellenetz.co.jp/branding/reason-ai/">
+<div class="field"><label for="contact-subject">お問い合わせ件名</label><textarea id="contact-subject" name="件名" rows="2" readonly aria-describedby="subject-hint">【選ばれる理由AI】無料適合診断（45分・Zoom面談）のご相談</textarea><p class="field-hint" id="subject-hint">この件名でお送りします。サービス名をあらためて入力する必要はありません。</p></div>''')
     for key, label, kind, required, autocomplete in fields:
         attrs = ' required' if required else ''
         badge = '<span class="required">必須</span>' if required else '<span class="field-optional">任意</span>'
