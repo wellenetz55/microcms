@@ -685,5 +685,12 @@
     "type": "WebPage",
     "service": false,
     "noindex": true
+  },
+  "/inquiry/reason-ai/": {
+    "title": "選ばれる理由AI｜無料適合診断（45分）のご相談 | ベレネッツ",
+    "description": "選ばれる理由AIの無料適合診断（45分・Zoom面談）専用お問い合わせフォーム。貴社の課題や相談したいことをお聞かせください。",
+    "image": "/assets/hero.jpg",
+    "type": "ContactPage",
+    "service": false
   }
 }
