@@ -68,7 +68,7 @@
     "branding/forbidden/index.html": "198efdab98d8bd298629ad92fa18c6a9b7ab38e62d7998f167df96ad537d5e07",
     "branding/index.html": "63e0063b1fa76271edd7052dc26d08915014c0c6b65dd29b31d5edcdc46502ce",
     "branding/jitan/index.html": "dec97a8b1171b2780cb7d51a19a4469e6d3f1074a8b263ffb99d9efa274d16b9",
-    "branding/reason-ai/index.html": "8054ad3a63ec4804a83a82adbb5155869cbdd5ee1a37db75e5a5a08172d0e85f",
+    "branding/reason-ai/index.html": "eb944280f0d36632976c0101f4fe671ebf76d41b3cfdeb92a36df9a316eb9835",
     "branding/recruitment_branding/index.html": "ebcc5795f2a05aa27f780cec6b804ea2812fe8fa9b68889341e92e98703781eb",
     "branding/sns_branding/index.html": "ed79542664cf5193dd9df256e4d7f38d603ec948f78becdd5cc769ba5c0a4a27",
     "brandingseminar_free/index.html": "becbe1355f779bcbc4d08bdd06f12afee6d8ebbe97e41c216d072f8a7101edb0",
@@ -156,6 +156,7 @@
     "robots.txt": "f81381e19294c1f0ac0857508ec4690b1227943066f15a56d0a57ee7c16cc9ad",
     "services/index.html": "931a216f1fd92c20114a23873b0e4f30b491b555980399503c036f0a615aee77",
     "specified_commercial_transactions/index.html": "dc115ab354c8bc01c5130f1d1dd6d3d22a87a6e95e11785e3e3eabecedbce094",
-    "wellenetz-menu/index.html": "db06186cb285efd6fe298ec696deb7dc53ad66aa884a20fad46565875d50a9c6"
+    "wellenetz-menu/index.html": "db06186cb285efd6fe298ec696deb7dc53ad66aa884a20fad46565875d50a9c6",
+    "inquiry/reason-ai/index.html": "d8f19bdac06af4fc357447005bc949df0bafdeb8bf13c7cca894442bb6df66c4"
   }
 }
