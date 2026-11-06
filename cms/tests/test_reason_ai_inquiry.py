@@ -21,10 +21,12 @@ class ReasonAIInquiryTests(unittest.TestCase):
         self.assertIn('readonly',inputs['件名']); self.assertNotIn('disabled',inputs['件名'])
         self.assertIn('【選ばれる理由AI】無料適合診断（45分・Zoom面談）のご相談',html)
         self.assertEqual(next(a['action'] for t,a in nodes if t=='form'),FORMS['general'][1])
-    def test_existing_forms_keep_their_own_identity_and_endpoint(self):
-        for kind in ('general','interview_requests','instructor_requests','jv'):
-            html=contact_form(kind)
-            self.assertNotIn('contact-subject',html)
-            self.assertNotIn('お問い合わせ元ページ',html)
-            self.assertIn('value="'+FORMS[kind][0]+'"',html)
-            self.assertIn('action="'+FORMS[kind][1]+'"',html)
+    def test_general_forms_post_one_selected_category_to_one_receiver(self):
+        categories = dict(general='総合相談',interview_requests='メディア',instructor_requests='講師依頼',jv='協業提携')
+        for kind, category in categories.items():
+            nodes=FormParser(contact_form(kind)).nodes
+            fields=[a for tag,a in nodes if a.get('name')=='お問い合わせ種別']
+            self.assertEqual([a['value'] for a in fields],list(categories.values()))
+            self.assertTrue(all(a.get('type')=='radio' and 'required' in a for a in fields))
+            self.assertEqual([a['value'] for a in fields if 'checked' in a],[category])
+            self.assertEqual(next(a['action'] for tag,a in nodes if tag=='form'), FORMS['general'][1])
