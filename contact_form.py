@@ -4,7 +4,7 @@ No personal data is saved in browser storage.
 from html import escape
 
 FORMS = {
-    'reason-ai': ('選ばれる理由AI｜無料適合診断（45分）', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', '選ばれる理由AIの無料適合診断（45分・Zoom面談）についての専用窓口です。', '現在の課題や、無料適合診断で相談したいことをお聞かせください。'),
+    'reason-ai': ('選ばれる理由AI｜無料適合診断（45分）', 'https://form.run/api/v1/r/fnc0lumimw3kjrehhrx7f6gl', '選ばれる理由AIの無料適合診断（45分・Zoom面談）についての専用窓口です。', '現在の課題や、無料適合診断で相談したいことをお聞かせください。'),
     'general': ('総合お問い合わせ', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', 'お問い合わせの種類を1つ選び、ご相談内容をご入力ください。', '現在の課題、ご相談したいこと、ご希望などをお聞かせください。'),
 }
 
