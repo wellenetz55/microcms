@@ -1,20 +1,11 @@
-用途別お問い合わせ：form.run接続（2026-10-05）
+一般お問い合わせ：2026-11-06 改訂
 
-総合お問い合わせ
-ページ：/inquiry/general/
+受付先は既存の「総合お問い合わせ」1件です。
+/inquiry/ と /inquiry/general/ は「総合相談」を初期選択します。
+従来の /inquiry/interview_requests/、/inquiry/instructor_requests/、/inquiry/jv/ は、それぞれ「メディア」「講師依頼」「協業提携」を初期選択します。利用者はどの入口からでも種類を変更できます。
 送信先：https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp
-
-メディアのお問い合わせ
-ページ：/inquiry/interview_requests/
-送信先：https://form.run/api/v1/r/z6gfj31qd67mbw7v6ft0800f
-
-講師ご依頼
-ページ：/inquiry/instructor_requests/
-送信先：https://form.run/api/v1/r/fnc0lumimw3kjrehhrx7f6gl
-
-協業・提携のご相談
-ページ：/inquiry/jv/
-送信先：https://form.run/api/v1/r/aammn3htrqo22ftn86a834hl
+旧受付先の履歴はform.runに残します。フォーム追加、削除、契約変更は不要です。
+/inquiry/reason-ai/ は独自の件名と固定種別を持つ従来の専用画面を維持します。通知メールの件名はform.runの設定に従います。
 
 共通設定
 クラス：formrun / method：POST / 文字コード：UTF-8
@@ -26,7 +17,7 @@ formrun.jsは任意のため、標準HTMLの入力検証と独自の確認画面
 JavaScript無効時はブラウザーの入力検証後、そのまま送信します。
 
 共通の送信項目（name属性）
-・お問い合わせ種別：各ページの種別（固定）
+・お問い合わせ種別：一般お問い合わせでは選択された1項目
 ・会社名（必須、個人の方は「個人」）
 ・お名前（必須）
 ・メールアドレス（必須、メール形式）
@@ -35,19 +26,4 @@ JavaScript無効時はブラウザーの入力検証後、そのまま送信し�
 ・個人情報の取扱いへの同意（必須）
 ・_formrun_gotcha（ボット検知用。人間は空欄）
 
-確認状況
-・4種類の必須入力、確認画面、修正操作、問い合わせ種別と送信先の対応を確認。
-・今回の追加3フォームは実送信していません。受信・通知・自動返信は未確認です。
-・先の総合フォームの実送信は、ローカルURL未登録（referer_not_match）で受付完了には至りませんでした。
-・ユーザーの希望により追加テストは停止。本番用ファイルとして納品。
-
-公開時の確認
-各フォームのform.run管理画面で、本番の設置先URL https://www.wellenetz.co.jp/、
-受付状態、受信項目、通知先、迷惑送信対策、完了画面をご確認ください。
-自動返信を利用する場合は「メールアドレス」項目と返信先の対応もご確認ください。
-プレビューからも最終送信ボタンは実際のform.runへ送信するためご注意ください。
-
-共通送信完了ページ
-https://www.wellenetz.co.jp/inquiry/thanks/
-公開後、form.runの全4フォームの「フォーム送信後リダイレクトURL」に設定してください。
-詳細は「送信完了ページ-設定手順.txt」。管理画面の設定変更は未実施です。
+完了ページ：https://www.wellenetz.co.jp/inquiry/thanks/

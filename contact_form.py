@@ -5,27 +5,41 @@ from html import escape
 
 FORMS = {
     'reason-ai': ('選ばれる理由AI｜無料適合診断（45分）', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', '選ばれる理由AIの無料適合診断（45分・Zoom面談）についての専用窓口です。', '現在の課題や、無料適合診断で相談したいことをお聞かせください。'),
-    'general': ('総合お問い合わせ', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', 'サービスに関するご相談やご質問をお聞かせください。', '現在の課題、ご相談したいこと、ご希望などをお聞かせください。'),
-    'interview_requests': ('メディアのお問い合わせ', 'https://form.run/api/v1/r/z6gfj31qd67mbw7v6ft0800f', '取材・掲載など、メディアに関するお問い合わせをお聞かせください。', '媒体名、取材・掲載の概要、ご希望の日程などをお聞かせください。'),
-    'instructor_requests': ('講師ご依頼', 'https://form.run/api/v1/r/fnc0lumimw3kjrehhrx7f6gl', '講演・研修などの講師ご依頼についてお聞かせください。', '講演・研修のテーマ、対象者、ご希望の日程・会場・開催形式などをお聞かせください。'),
-    'jv': ('協業・提携のご相談', 'https://form.run/api/v1/r/aammn3htrqo22ftn86a834hl', '協業・提携のご提案やご相談をお聞かせください。', '貴社の事業内容、ご提案・ご相談の概要、期待する連携などをお聞かせください。'),
+    'general': ('総合お問い合わせ', 'https://form.run/api/v1/r/bf36dj8z2ka0zi2z50kewndp', 'お問い合わせの種類を1つ選び、ご相談内容をご入力ください。', '現在の課題、ご相談したいこと、ご希望などをお聞かせください。'),
 }
 
+GENERAL_TYPES = {
+    'general': '総合相談',
+    'interview_requests': 'メディア',
+    'instructor_requests': '講師依頼',
+    'jv': '協業提携',
+}
+
+def category_picker(selected):
+    choices = []
+    for key, text in GENERAL_TYPES.items():
+        checked = ' checked' if key == selected else ''
+        choices.append(f'<label class="inquiry-choice"><input type="radio" name="お問い合わせ種別" value="{text}" required{checked}><span>{text}</span></label>')
+    return '<fieldset id="inquiry-category"><legend>お問い合わせの種類<span class="required">必須</span></legend><div class="inquiry-choices">' + ''.join(choices) + '</div></fieldset>'
+
 def contact_form(kind):
-    title, action, introduction, placeholder = FORMS[kind]
+    title, action, introduction, placeholder = FORMS['general' if kind in GENERAL_TYPES else kind]
     fields = [
         ('company', '会社名', 'text', True, 'organization'),
         ('name', 'お名前', 'text', True, 'name'),
         ('email', 'メールアドレス', 'email', True, 'email'),
         ('phone', '電話番号', 'tel', False, 'tel'),
     ]
+    hidden_type = '' if kind in GENERAL_TYPES else f'<input type="hidden" name="お問い合わせ種別" value="{escape(title, quote=True)}">'
     parts = [f'''<div class="contact-form"><p class="form-note">{escape(introduction)}内容をご確認いただいた後、form.runを通じてベレネッツへ送信します。</p>
 <form id="contact-inquiry-form" class="formrun" action="{escape(action, quote=True)}" method="post" accept-charset="UTF-8">
-<input type="hidden" name="お問い合わせ種別" value="{escape(title, quote=True)}">
+{hidden_type}
 <div id="contact-fields">''']
     if kind == 'reason-ai':
         parts.append('''<input type="hidden" name="お問い合わせ元ページ" value="https://www.wellenetz.co.jp/branding/reason-ai/">
 <div class="field"><label for="contact-subject">お問い合わせ件名</label><textarea id="contact-subject" name="件名" rows="2" readonly aria-describedby="subject-hint">【選ばれる理由AI】無料適合診断（45分・Zoom面談）のご相談</textarea><p class="field-hint" id="subject-hint">この件名でお送りします。サービス名をあらためて入力する必要はありません。</p></div>''')
+    else:
+        parts.append(category_picker(kind))
     for key, label, kind, required, autocomplete in fields:
         attrs = ' required' if required else ''
         badge = '<span class="required">必須</span>' if required else '<span class="field-optional">任意</span>'
