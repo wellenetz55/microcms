@@ -20,7 +20,9 @@ class ReasonAIInquiryTests(unittest.TestCase):
         self.assertEqual(inputs['お問い合わせ元ページ']['value'],'https://www.wellenetz.co.jp/branding/reason-ai/')
         self.assertIn('readonly',inputs['件名']); self.assertNotIn('disabled',inputs['件名'])
         self.assertIn('【選ばれる理由AI】無料適合診断（45分・Zoom面談）のご相談',html)
-        self.assertEqual(next(a['action'] for t,a in nodes if t=='form'),FORMS['general'][1])
+        receiver = next(a['action'] for t,a in nodes if t=='form')
+        self.assertEqual(receiver, 'https://form.run/api/v1/r/fnc0lumimw3kjrehhrx7f6gl')
+        self.assertNotEqual(receiver, FORMS['general'][1])
     def test_general_forms_post_one_selected_category_to_one_receiver(self):
         categories = dict(general='総合相談',interview_requests='メディア',instructor_requests='講師依頼',jv='協業提携')
         for kind, category in categories.items():
