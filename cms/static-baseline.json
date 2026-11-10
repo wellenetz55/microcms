@@ -68,7 +68,7 @@
     "branding/forbidden/index.html": "198efdab98d8bd298629ad92fa18c6a9b7ab38e62d7998f167df96ad537d5e07",
     "branding/index.html": "63e0063b1fa76271edd7052dc26d08915014c0c6b65dd29b31d5edcdc46502ce",
     "branding/jitan/index.html": "dec97a8b1171b2780cb7d51a19a4469e6d3f1074a8b263ffb99d9efa274d16b9",
-    "branding/reason-ai/index.html": "eb944280f0d36632976c0101f4fe671ebf76d41b3cfdeb92a36df9a316eb9835",
+    "branding/reason-ai/index.html": "0831b7f101a9b1a8e017fbeea23e2c9cf5d5d6e2cbb4356a0094d76115e79aff",
     "branding/recruitment_branding/index.html": "ebcc5795f2a05aa27f780cec6b804ea2812fe8fa9b68889341e92e98703781eb",
     "branding/sns_branding/index.html": "ed79542664cf5193dd9df256e4d7f38d603ec948f78becdd5cc769ba5c0a4a27",
     "brandingseminar_free/index.html": "becbe1355f779bcbc4d08bdd06f12afee6d8ebbe97e41c216d072f8a7101edb0",
@@ -157,6 +157,8 @@
     "services/index.html": "931a216f1fd92c20114a23873b0e4f30b491b555980399503c036f0a615aee77",
     "specified_commercial_transactions/index.html": "dc115ab354c8bc01c5130f1d1dd6d3d22a87a6e95e11785e3e3eabecedbce094",
     "wellenetz-menu/index.html": "db06186cb285efd6fe298ec696deb7dc53ad66aa884a20fad46565875d50a9c6",
-    "inquiry/reason-ai/index.html": "7dc1f5c80a90e68950323d085c42f7e110845c80ab571164c191ddbf93572f6a"
+    "inquiry/reason-ai/index.html": "7dc1f5c80a90e68950323d085c42f7e110845c80ab571164c191ddbf93572f6a",
+    "assets/reason-ai-diagnosis-overview-20261110.jpg": "12bb7d9a1d8d0896f561a933389b124de569d3ea5b8066d2fefe06211adfe1c9",
+    "assets/reason-ai-diagnosis-candidates-20261110.jpg": "d161a1d05ca693da53fb006c8205c5ea9eeec18eb134fd446fc86a98aacabdf4"
   }
 }
