@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "review": "2026-10-29: existing production preserved; only KinQR restored. CMS news regions excluded.",
+  "review": "2026-11-10: add only corporate-branding guide LP, dedicated completion, PDF and assets; existing approved files unchanged.",
   "files": {
     "404/index.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
     "404.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
@@ -159,6 +159,15 @@
     "wellenetz-menu/index.html": "db06186cb285efd6fe298ec696deb7dc53ad66aa884a20fad46565875d50a9c6",
     "inquiry/reason-ai/index.html": "7dc1f5c80a90e68950323d085c42f7e110845c80ab571164c191ddbf93572f6a",
     "assets/reason-ai-diagnosis-overview-20261110.jpg": "12bb7d9a1d8d0896f561a933389b124de569d3ea5b8066d2fefe06211adfe1c9",
-    "assets/reason-ai-diagnosis-candidates-20261110.jpg": "d161a1d05ca693da53fb006c8205c5ea9eeec18eb134fd446fc86a98aacabdf4"
+    "assets/reason-ai-diagnosis-candidates-20261110.jpg": "d161a1d05ca693da53fb006c8205c5ea9eeec18eb134fd446fc86a98aacabdf4",
+    "branding/practical-guide/checklist.jpg": "c360a1466eae7731e852826ee5eb2111f53bfb34ecba18ad860d7ffc2a072850",
+    "branding/practical-guide/cover-hd.webp": "8f87803aebb14de48e9a1cd76318196c6ec249966da719fca95d43a0642e16b7",
+    "branding/practical-guide/guide.pdf": "ddb20311a2d1a3c3f724c6fd7992733cb435a7571c8fdbef99a9d5b55364d79b",
+    "branding/practical-guide/index.html": "68ab36eeccb80258247b1d3a6b6d614ebd00615a1ef792b0bac52ea2140b300c",
+    "branding/practical-guide/lead-config.js": "0e3b085c90ce2a9a4eee755b62b84e1410c339afb99b54398e1b032fcaab9d66",
+    "branding/practical-guide/lead-flow.js": "ee7d20e78bb50ab681c409aaf436653c779252b268b7cd8b3b9f62dea52e6c65",
+    "branding/practical-guide/steps.jpg": "aac6abe2d868a6d5caf81585e9747bf3600013a9b7d8fcb118b0b454bd1a0a96",
+    "branding/practical-guide/thanks/index.html": "a61df4b59e6683b5e972d028f300cfd52a68a0aa58f2c89955b6900ea687b500",
+    "branding/practical-guide/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098"
   }
 }
