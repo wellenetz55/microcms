@@ -188,4 +188,6 @@ page('/404/','ページが見つかりません',section('<div class="error-page
 (ROOT/'page-inventory.json').write_text(json.dumps(inventory,ensure_ascii=False,indent=2))
 from seo import finalize_seo
 finalize_seo(ROOT,DIST,inventory,PRODUCTION)
+from branding_guide import build_branding_guide
+build_branding_guide(ROOT,DIST,PRODUCTION)
 print(f'Built {len(inventory)} pages.')
