@@ -74,18 +74,19 @@ class PipelineTests(unittest.TestCase):
             self.assertIn('.hero-reason-banner{',(site/stylesheet.lstrip('/')).read_text())
             # Preserve the complete service page when CMS news regenerates the site.
             reason=(site/'branding/reason-ai/index.html').read_text()
-            for content in ('8週間で「言葉」に。', '8週間で、御社に残るもの。',
-                            '実際のベレネッツ担当者とのオンラインセッション',
-                            '【オプション】御社の「選ばれる理由」を知る、',
-                            'ベレネッツとの別途継続契約'):
+            for content in ('商談は進む。', '診断結果のご提供までは無料',
+                            '別途有料', 'テスト企業の表示例', '別途月額契約'):
                 self.assertIn(content,reason)
-            for image in ('reason-ai-diagnosis-screen-20261021.png','reason-ai-session-flow.png'):
+            for image in ('reason-ai-diagnosis-overview-20261110.jpg',
+                          'reason-ai-diagnosis-candidates-20261110.jpg'):
                 self.assertIn('/assets/'+image,reason)
                 self.assertGreater((site/'assets'/image).stat().st_size,0)
-            for anchor in ('deliverables','screen','journey','support'):
+            for anchor in ('diagnosis', 'diagnosis-screens', 'deliverables'):
                 self.assertIn('id="'+anchor+'"',reason)
-            self.assertIn('.rai-session-support{',(site/stylesheet.lstrip('/')).read_text())
-            self.assertNotIn('reason-ai-hero-grid',reason)
+            self.assertEqual(reason.count('href="https://www.wellenetz.co.jp/inquiry/reason-ai/"'),3)
+            self.assertNotIn('LP改善案・未公開',reason)
+            self.assertNotIn('確認用プレビュー',reason)
+            self.assertIn('GTM-KTW89Q',reason)
             # A news refresh must retain the illustrated KinQR page and its isolated CSS.
             kinqr=(site/'marketing/kinqr/index.html').read_text()
             for anchor in ('how-to-use','management','signage'):
