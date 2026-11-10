@@ -39,6 +39,8 @@ def page(path,title,body,en='',lead='',group='',hero=True,cta=True):
   version=hashlib.sha256((DIST/'assets/kinqr.css').read_bytes()).hexdigest()[:12]
   shutil.copy2(DIST/'assets/kinqr.css',DIST/f'assets/kinqr.{version}.css')
   html=html.replace('</head>',f'<link rel="stylesheet" href="/assets/kinqr.{version}.css"></head>')
+ if path=='/branding/reason-ai/':
+  html=(SRC/'reason-ai-lp.html').read_text()
  file=DIST/path.strip('/')/'index.html' if path!='/' else DIST/'index.html';file.parent.mkdir(parents=True,exist_ok=True);file.write_text(html);inventory.append({'path':path,'title':title,'group':group or en})
 services=[('/branding/','01 / BRANDING','ブランディング','隠れた価値を見つけ、「選ばれる理由」をつくる。'),('/marketing/','02 / MARKETING','マーケティング','価値が届く接点を設計し、顧客を惹き寄せる。'),('/creative/','03 / CREATIVE','クリエイティブ制作','戦略を、伝わるデザインと行動につながる体験へ。')]
 news=[p for p in sources if '/news/' in p['url'] and p['url'].rstrip('/')!='https://www.wellenetz.co.jp/news']
