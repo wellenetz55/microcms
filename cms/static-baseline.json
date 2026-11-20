@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "review": "2026-11-10: add only corporate-branding guide LP, dedicated completion, PDF and assets; existing approved files unchanged.",
+  "review": "2026-11-20: add dedicated advertising guide landing page and assets; preserve all previously approved files.",
   "files": {
     "404/index.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
     "404.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
@@ -168,6 +168,12 @@
     "branding/practical-guide/lead-flow.js": "ee7d20e78bb50ab681c409aaf436653c779252b268b7cd8b3b9f62dea52e6c65",
     "branding/practical-guide/steps.jpg": "aac6abe2d868a6d5caf81585e9747bf3600013a9b7d8fcb118b0b454bd1a0a96",
     "branding/practical-guide/thanks/index.html": "a61df4b59e6683b5e972d028f300cfd52a68a0aa58f2c89955b6900ea687b500",
-    "branding/practical-guide/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098"
+    "branding/practical-guide/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098",
+    "ads/branding-guide/lead-flow.js": "9d2e072920b4c8f77c2feb0771afca3aad20775784b58cd6f8ffea1988880da3",
+    "ads/branding-guide/index.html": "eb9db34c21a83fd1ea8c294d6e4a1dc4d14015f35f1e24088a8da593dfadfb00",
+    "ads/branding-guide/lead-config.js": "257b9c60ad41997dc67337afb3ed6272009262f3272dd6c4cc473acc59dcdf25",
+    "ads/branding-guide/assets/checklist-original.png": "da81b1062874bfadfc6c9cf4b6a34b899d6c87ea8e45829a22d46155db5d5423",
+    "ads/branding-guide/assets/cover-hd.webp": "8f87803aebb14de48e9a1cd76318196c6ec249966da719fca95d43a0642e16b7",
+    "ads/branding-guide/assets/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098"
   }
 }
