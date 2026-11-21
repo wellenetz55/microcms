@@ -35,6 +35,8 @@ def page(path,title,body,en='',lead='',group='',hero=True,cta=True):
  # Page-specific styles never change the shared CSS/JS version or other pages.
  if 'id="inquiry-category"' in body:
   html=html.replace('</head>', '<style>#inquiry-category{padding:0;border:0;margin:0 0 2rem;min-inline-size:0}#inquiry-category legend{font-weight:700;margin-bottom:.75rem}.inquiry-choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,150px),1fr));gap:.6rem}.inquiry-choice{display:flex;align-items:center;gap:.7rem;min-height:52px;padding:.65rem .9rem;border:1px solid var(--line);cursor:pointer;font-weight:600}.inquiry-choice:has(:checked){border-color:var(--ink);background:var(--soft)}.inquiry-choice:focus-within{outline:2px solid var(--ink);outline-offset:2px}.inquiry-choice input{width:1.1rem;height:1.1rem;margin:0;accent-color:var(--ink);flex:none}</style></head>')
+ if path=='/':
+  html=html.replace('</head>', '<style>#track-record .stat-value{letter-spacing:.04em}</style></head>')
  if path=='/marketing/kinqr/':
   version=hashlib.sha256((DIST/'assets/kinqr.css').read_bytes()).hexdigest()[:12]
   shutil.copy2(DIST/'assets/kinqr.css',DIST/f'assets/kinqr.{version}.css')
