@@ -6,6 +6,15 @@
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}@media print{.review{display:none}.hero,.diagnosis{background:#fff;color:#062235}.hero .intro,.hero .small,.hero .price-note,.diagnosis .section-intro,.diagnosis .box p,.diagnosis .small{color:#50616d}section{break-inside:avoid}}
 
 .result-gallery{background:#fff}.result-gallery .section-intro{max-width:800px}.result-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}.result-card{margin:0;background:#f5f8fa;border:1px solid var(--line);border-radius:12px;overflow:hidden}.result-card figcaption{padding:23px 24px 18px}.result-card h3{margin:6px 0 8px;font-size:20px}.result-card p{font-size:14px;color:var(--muted);margin:0}.result-label{font-size:11px;font-weight:800;letter-spacing:.09em;color:#137581}.result-image-link{display:block;padding:0 12px 12px;text-decoration:none}.result-image-link img{display:block;width:100%;height:auto;background:white;border:1px solid #dde5e9;border-radius:5px}.result-zoom{display:block;padding:11px 10px 0;font-size:12px;color:#166f79;text-align:right;text-decoration:underline;text-underline-offset:3px}.result-caution{font-size:12px;line-height:1.9;color:var(--muted);margin:20px 0 0;max-width:850px}@media(max-width:760px){.result-grid{grid-template-columns:1fr;gap:22px}.result-card figcaption{padding:21px 20px 16px}.result-card h3{font-size:19px}.result-image-link{padding:0 9px 10px}}
+
+.meeting-layout{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);align-items:start;gap:clamp(24px,4vw,52px)}
+.meeting-film{margin:0;min-width:0}
+.meeting-film video{display:block;width:100%;height:auto;aspect-ratio:16/9;border-radius:8px;background:var(--ink)}
+.meeting-film figcaption{margin-top:10px;font-size:12px;line-height:1.7;color:var(--muted)}
+.meeting-film figcaption strong{font-size:14px;color:var(--ink)}
+.meeting-steps .flow{padding:14px 0}
+.meeting-program .note{border-top:1px solid var(--line);padding-top:14px}
+@media(max-width:760px){.meeting-layout{grid-template-columns:minmax(0,1fr);gap:24px}}
 </style></head><body id="top">
 <header class="hero"><div class="wrap"><div class="top"><div class="brand">選ばれる理由<span>AI</span></div><span class="navtext">まずは45分の無料適合診断。</span></div>
 <div class="hero-grid"><div><p class="eyebrow">BtoB企業の経営者・営業責任者へ</p><h1>商談は進む。<br>けれど、最後の比較で<br><em>選ばれない。</em></h1><p class="lead">その強みを、お客様が<br>違いを判断できる言葉へ。</p><p class="intro">まずは45分、今の課題を一緒に整理。「選ばれる理由AI」の支援が御社に合うかを確認し、診断結果をお伝えします。</p><a class="cta" href="https://www.wellenetz.co.jp/inquiry/reason-ai/" target="_blank" rel="noopener">45分の無料適合診断に申し込む <b aria-hidden="true">→</b></a><p class="small">Zoomで実施。今の課題と、支援の適合性を確認します。</p><p class="price-note">適合診断と診断結果のご提供までは無料です。<br>8週間の本プログラムは別途有料です。</p></div>
@@ -27,7 +36,29 @@
 </div></section>
 
 <section class="pale" id="deliverables"><div class="wrap"><p class="kicker">診断後に検討する、別途有料の8週間プログラム</p><h2>営業に使う言葉を、形に。</h2><div class="three"><article class="card"><span class="number">01</span><h3>強みと根拠の<br>整理シート</h3><p>何ができるか、顧客にどんな価値があるか、なぜそう言えるか。事実・要確認・仮説を分けて整理します。</p></article><article class="card"><span class="number">02</span><h3>営業トークと<br>価格の説明</h3><p>「他社との違いは？」「なぜこの価格なのか？」に答える材料を、商談で使う言葉に整えます。</p></article><article class="card"><span class="number">03</span><h3>Webの原稿と<br>社内共有の型</h3><p>整理した強みをWeb等の原稿に展開。担当者が変わっても同じ軸で伝えられるよう、共有と運用の型をまとめます。</p></article></div><p class="note">Webサイトや営業資料のデザイン・制作の完成品は含まれません。</p></div></section>
-<section><div class="wrap two"><div><p class="kicker">AI × 御社 × 専門家</p><h2>整理し、確かめ、<br>使う言葉に仕上げる。</h2><p class="section-intro">AIが下書きを作り、御社が事実と照らして判断。専門家が面談で言葉と方向性を確認し、説明を整えます。</p><p class="note">面談はキックオフを含む計5回。日々の取組みは週1〜2時間が目安です。キックオフ3時間は別途必要です。</p></div><div><div class="flow"><strong><span class="n">01</span>材料を集める</strong><p>3時間のキックオフで、現状や会社資料、顧客について共有します。</p></div><div class="flow"><strong><span class="n">02</span>強みを掘り下げる</strong><p>AIとの対話と面談で、自社の価値と根拠を整理します。</p></div><div class="flow"><strong><span class="n">03</span>使う言葉にする</strong><p>営業トーク、価格説明、Web等の原稿に展開します。</p></div></div></div></section>
+<section id="program" class="meeting-program" aria-labelledby="program-title">
+  <div class="wrap">
+    <p class="kicker">8週間の進め方</p>
+    <h2 id="program-title">AIと見つけた強みを、<br>面談で一緒に絞り込む。</h2>
+    <p class="section-intro">日々のAIとの対話で「選ばれる理由」の候補を集めます。途中のオンライン面談では、同じ画面を見ながら、ベレネッツの担当者と「どのお客様に、どの強みから伝えるか」を決めます。</p>
+    <div class="meeting-layout">
+      <figure class="meeting-film">
+        <video controls muted playsinline preload="none" width="1920" height="1080" poster="/assets/reason-ai/online-meeting.jpg" aria-label="ベレネッツ担当者とのオンライン面談イメージ" aria-describedby="meeting-caption">
+          <source src="/assets/reason-ai/online-meeting.mp4" type="video/mp4">
+          <track kind="captions" src="data:text/vtt;charset=utf-8,WEBVTT%0A%0A00%3A00%3A02.200%20--%3E%2000%3A00%3A06.100%0A%E3%81%93%E3%81%AE%E5%BC%B7%E3%81%BF%E3%81%A7%E3%80%81%E4%B8%80%E7%95%AA%E5%8A%A9%E3%81%8B%E3%82%8B%E3%81%AE%E3%81%AF%0A%E3%81%A9%E3%82%93%E3%81%AA%E3%81%8A%E5%AE%A2%E6%A7%98%E3%81%A7%E3%81%99%E3%81%8B%EF%BC%9F%0A" default srclang="ja" label="日本語">
+          <a href="/assets/reason-ai/online-meeting.mp4">面談イメージをMP4で見る</a>
+        </video>
+        <figcaption id="meeting-caption"><strong>オンライン面談のイメージ（約8秒）</strong><br>人物はAI生成、共有画面はテスト企業の実際のアプリ画面です。</figcaption>
+      </figure>
+      <div class="meeting-steps">
+        <div class="flow"><strong><span class="n">01</span>強みの材料を集める</strong><p>キックオフで会社の資料やお客様について伺います。その後、AIの問いに答えながら、現場で当たり前にしている工夫を言葉にします。</p></div>
+        <div class="flow"><strong><span class="n">02</span>担当者と候補を絞る</strong><p>2週目の面談で残す候補を選び、3週目の中間チェックで迷っている点を相談。5週目の面談で、優先して伝える強みを決めます。</p></div>
+        <div class="flow"><strong><span class="n">03</span>営業で使う言葉に仕上げる</strong><p>お客様の声や実績で強みを裏づけ、営業トークや価格の説明、Web原稿へ。8週目の面談で全体を確認します。</p></div>
+      </div>
+    </div>
+    <p class="note">面談は3時間のキックオフを含めて計5回。キックオフ以外の日々の取り組みは週1〜2時間が目安です。</p>
+  </div>
+</section>
 
 <section><div class="wrap"><p class="kicker">無料の範囲・進め方</p><h2>まずは無料で、適合性を確認。</h2><div class="two"><table class="price-table"><tbody><tr><th scope="row">無料の範囲</th><td>45分の適合診断・診断結果のご提供<br>Zoomで実施</td></tr><tr><th scope="row">本プログラム</th><td>8週間・オンライン面談5回<br>別途有料</td></tr><tr><th scope="row">取組みの時間</th><td>週1〜2時間が目安<br>別途キックオフ3時間</td></tr><tr><th scope="row">完成後の成果物</th><td>継続契約なしでも活用可能</td></tr><tr><th scope="row">終了後の専用AI</th><td>継続利用は別途月額契約</td></tr></tbody></table><aside class="fit"><h3>こんな企業に向いています。</h3><p>すでに選んでくれているお客様がいて、自社の強みを事実に基づいて整理したい企業。経営者・事業責任者が判断に参加できることも大切です。</p><p>商品・顧客の材料がまだない場合や、すべてを外注したい場合は、適合診断で先に取り組むことを確認します。</p></aside></div></div></section>
 <section class="pale"><div class="wrap"><p class="kicker">よくある質問</p><h2>気になることを、先に。</h2><details><summary>成約や売上の増加を保証するサービスですか？</summary><p>強みと根拠を整理し、営業・Webで使える説明を作る支援です。成約・売上の結果を保証するものではありません。</p></details><details><summary>AIを使い慣れていなくても進められますか？</summary><p>ブラウザ上で進め、専門家との面談で言葉や方向性を確認します。自社の資料や事実を共有し、下書きを判断する取組みは必要です。</p></details><details><summary>Webサイトや営業資料も完成しますか？</summary><p>使う言葉や原稿を整理します。Webサイトや営業資料のデザイン・制作の完成品は含まれません。</p></details><details><summary>8週間の後も契約が必要ですか？</summary><p>完成した成果物は継続契約なしで活用できます。専用AIの継続利用を希望する場合は、別途月額契約です。</p></details></div></section>

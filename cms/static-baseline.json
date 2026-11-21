@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "review": "2026-11-20: add dedicated advertising guide landing page and assets; preserve all previously approved files.",
+  "review": "2026-11-21: approve the Reason AI program section and its silent meeting video and poster only.",
   "files": {
     "404/index.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
     "404.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
@@ -68,7 +68,7 @@
     "branding/forbidden/index.html": "198efdab98d8bd298629ad92fa18c6a9b7ab38e62d7998f167df96ad537d5e07",
     "branding/index.html": "63e0063b1fa76271edd7052dc26d08915014c0c6b65dd29b31d5edcdc46502ce",
     "branding/jitan/index.html": "dec97a8b1171b2780cb7d51a19a4469e6d3f1074a8b263ffb99d9efa274d16b9",
-    "branding/reason-ai/index.html": "0831b7f101a9b1a8e017fbeea23e2c9cf5d5d6e2cbb4356a0094d76115e79aff",
+    "branding/reason-ai/index.html": "f88a70b37aa44575da06084623cd1e12242cee1d73ff0b43a108201cbb2465b6",
     "branding/recruitment_branding/index.html": "ebcc5795f2a05aa27f780cec6b804ea2812fe8fa9b68889341e92e98703781eb",
     "branding/sns_branding/index.html": "ed79542664cf5193dd9df256e4d7f38d603ec948f78becdd5cc769ba5c0a4a27",
     "brandingseminar_free/index.html": "becbe1355f779bcbc4d08bdd06f12afee6d8ebbe97e41c216d072f8a7101edb0",
@@ -174,6 +174,8 @@
     "ads/branding-guide/lead-config.js": "257b9c60ad41997dc67337afb3ed6272009262f3272dd6c4cc473acc59dcdf25",
     "ads/branding-guide/assets/checklist-original.png": "da81b1062874bfadfc6c9cf4b6a34b899d6c87ea8e45829a22d46155db5d5423",
     "ads/branding-guide/assets/cover-hd.webp": "8f87803aebb14de48e9a1cd76318196c6ec249966da719fca95d43a0642e16b7",
-    "ads/branding-guide/assets/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098"
+    "ads/branding-guide/assets/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098",
+    "assets/reason-ai/online-meeting.mp4": "85514cabd74ddd57272c29db66237826da433f81e7d4f710b4577c0b3d74f597",
+    "assets/reason-ai/online-meeting.jpg": "d18efc9e21156cd2349a797470d4c27cb50f158508db286c59cf33a5f97e0c46"
   }
 }
