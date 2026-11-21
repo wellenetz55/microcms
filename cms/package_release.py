@@ -29,4 +29,9 @@ if __name__ == '__main__':
     parser.add_argument('--release', type=Path, required=True)
     parser.add_argument('--output', type=Path, required=True)
     args = parser.parse_args()
+    # This one-off release branch may publish only the homepage metric spacing.
+    files = json.loads((args.release / 'manifest.json').read_text())['files']
+    actual = hashlib.sha256(json.dumps(files, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+    if actual != 'c521d04e16480476c8e3fee9bdfa52fbcfb4b05562d9fd9d49c5bbcaf938e15c':
+        raise SystemExit('Release stopped: generated files differ from the approved homepage change.')
     package(args.release, args.output)
