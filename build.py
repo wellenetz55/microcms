@@ -192,4 +192,6 @@ from seo import finalize_seo
 finalize_seo(ROOT,DIST,inventory,PRODUCTION)
 from branding_guide import build_branding_guide
 build_branding_guide(ROOT,DIST,PRODUCTION)
+from reason_ai_ads import build_reason_ai_ads
+build_reason_ai_ads(ROOT,DIST,PRODUCTION)
 print(f'Built {len(inventory)} pages.')

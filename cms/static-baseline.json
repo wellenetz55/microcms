@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "review": "2026-11-21: approve homepage track record digit spacing only.",
+  "review": "2026-11-24: diagnosis attribution on current LP, dedicated form and completion; unlisted ad LP and attribution script.",
   "files": {
     "404/index.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
     "404.html": "68bfbc30a3cb0df2249e5e63e6c8a7ec1b9ae37e2957ac7c9796f9b9c9aac2d7",
@@ -68,7 +68,7 @@
     "branding/forbidden/index.html": "198efdab98d8bd298629ad92fa18c6a9b7ab38e62d7998f167df96ad537d5e07",
     "branding/index.html": "63e0063b1fa76271edd7052dc26d08915014c0c6b65dd29b31d5edcdc46502ce",
     "branding/jitan/index.html": "dec97a8b1171b2780cb7d51a19a4469e6d3f1074a8b263ffb99d9efa274d16b9",
-    "branding/reason-ai/index.html": "f88a70b37aa44575da06084623cd1e12242cee1d73ff0b43a108201cbb2465b6",
+    "branding/reason-ai/index.html": "8b6c81760ba8509a4f46366dbd5b98053226543cf6c5761f48528e70eafbe2e7",
     "branding/recruitment_branding/index.html": "ebcc5795f2a05aa27f780cec6b804ea2812fe8fa9b68889341e92e98703781eb",
     "branding/sns_branding/index.html": "ed79542664cf5193dd9df256e4d7f38d603ec948f78becdd5cc769ba5c0a4a27",
     "brandingseminar_free/index.html": "becbe1355f779bcbc4d08bdd06f12afee6d8ebbe97e41c216d072f8a7101edb0",
@@ -134,7 +134,7 @@
     "inquiry/instructor_requests/index.html": "1b5d1efbfac74aafc87252a696b474b6e02e537836e1eb1a29ab98e627c6e09a",
     "inquiry/interview_requests/index.html": "c6bd9913a1ad64427ba1b7bcdabbd1379798ebe325e9b40e422405aac337dd74",
     "inquiry/jv/index.html": "b39b557c73ce731fd5a6df3393d006a37aa38298b93850920ac265b330c44408",
-    "inquiry/thanks/index.html": "1287ee072c75873cd20abc11e27fb06d9aa8439154db7664722b08f6a8e75e3f",
+    "inquiry/thanks/index.html": "312e3e7313b0910dfc34c47111465f0d2013fcd80079304a3e5dc6d87a3d0e1c",
     "marketing/index.html": "db012f7adf5a71d9002524a036579b55a2b0ac55d191989088ac7d5be22a534a",
     "marketing/kinqr/index.html": "40c8ad3d136a2d7425e832f51605e72914b54baca502de5b17a0f174dca5aceb",
     "marketing/small-short-term-insurance/index.html": "2c7bbce2c2b81a68d792addf587def3590bb4d58d22f664761de22b70d629a57",
@@ -157,7 +157,7 @@
     "services/index.html": "931a216f1fd92c20114a23873b0e4f30b491b555980399503c036f0a615aee77",
     "specified_commercial_transactions/index.html": "dc115ab354c8bc01c5130f1d1dd6d3d22a87a6e95e11785e3e3eabecedbce094",
     "wellenetz-menu/index.html": "db06186cb285efd6fe298ec696deb7dc53ad66aa884a20fad46565875d50a9c6",
-    "inquiry/reason-ai/index.html": "7dc1f5c80a90e68950323d085c42f7e110845c80ab571164c191ddbf93572f6a",
+    "inquiry/reason-ai/index.html": "c89c9fe1fbb135a3cae62ec58040c2ec2848fb70036144f313ddfd3adfaf0346",
     "assets/reason-ai-diagnosis-overview-20261110.jpg": "12bb7d9a1d8d0896f561a933389b124de569d3ea5b8066d2fefe06211adfe1c9",
     "assets/reason-ai-diagnosis-candidates-20261110.jpg": "d161a1d05ca693da53fb006c8205c5ea9eeec18eb134fd446fc86a98aacabdf4",
     "branding/practical-guide/checklist.jpg": "c360a1466eae7731e852826ee5eb2111f53bfb34ecba18ad860d7ffc2a072850",
@@ -176,6 +176,8 @@
     "ads/branding-guide/assets/cover-hd.webp": "8f87803aebb14de48e9a1cd76318196c6ec249966da719fca95d43a0642e16b7",
     "ads/branding-guide/assets/wellenetz-logo-tagline.png": "fefbec23838630734f0bf35cc28b68720dbcd7878bf3e6c53ffd42613ad0e098",
     "assets/reason-ai/online-meeting.mp4": "85514cabd74ddd57272c29db66237826da433f81e7d4f710b4577c0b3d74f597",
-    "assets/reason-ai/online-meeting.jpg": "d18efc9e21156cd2349a797470d4c27cb50f158508db286c59cf33a5f97e0c46"
+    "assets/reason-ai/online-meeting.jpg": "d18efc9e21156cd2349a797470d4c27cb50f158508db286c59cf33a5f97e0c46",
+    "assets/reason-ai-attribution-v1.js": "c778c85dcb971c40d1fa45eac1a5416225340a917e17d24c4a2ed5a4c24d42ea",
+    "ads/reason-ai/diagnosis/index.html": "48cc9438de6762716791a70003ab3a29977c9da2102b8477e6a3f88e4ea3c722"
   }
 }
