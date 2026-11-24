@@ -1,14 +1,14 @@
 (() => {
   'use strict';
   const path = location.pathname.replace(/\/?$/, '/');
-  const pages = {control: '/branding/reason-ai/', improved: '/ads/reason-ai/diagnosis/'};
+  const pages = {control: '/branding/reason-ai/', improved: '/ads/reason-ai/diagnosis/', longest_customer: '/ads/reason-ai/longest-customer/'};
   const formPath = '/inquiry/reason-ai/';
   const params = new URLSearchParams(location.search);
   const allowed = {
     utm_source: ['fb', 'ig', 'facebook', 'instagram', 'meta'],
     utm_medium: ['paid_social'],
     utm_campaign: ['reason_ai_202611'],
-    utm_content: ['A', 'D', 'F', 'A_ORANGE', 'F_QUESTION'],
+    utm_content: ['A', 'D', 'F', 'A_ORANGE', 'F_QUESTION', 'LONGEST_CUSTOMER'],
     lp_test: ['orange_lp_1'],
     tracking_qa: ['1']
   };
