@@ -9,6 +9,15 @@
   var form = document.getElementById('leadform');
   var params = new URLSearchParams(location.search);
   var allowed = {utm_source:['facebook','instagram','meta','fb','ig'],utm_medium:['paid_social'],utm_campaign:['branding_market_teams'],utm_content:['market','teams']};
+  if (params.get('utm_source') === 'google' &&
+      params.get('utm_medium') === 'cpc' &&
+      params.get('utm_campaign') === 'corporate_branding_search_202612' &&
+      ['consulting', 'company'].indexOf(params.get('utm_content')) >= 0) {
+    allowed = {
+      utm_source: ['google'], utm_medium: ['cpc'],
+      utm_campaign: ['corporate_branding_search_202612'], utm_content: ['consulting', 'company']
+    };
+  }
   var attribution = {};
   Object.keys(allowed).forEach(function(k){var v=params.get(k);if(allowed[k].indexOf(v)>=0)attribution[k]=v;});
   function emit(name, data) {
