@@ -74,7 +74,7 @@ class PipelineTests(unittest.TestCase):
             self.assertIn('.hero-reason-banner{',(site/stylesheet.lstrip('/')).read_text())
             # Preserve the complete service page when CMS news regenerates the site.
             reason=(site/'branding/reason-ai/index.html').read_text()
-            for content in ('商談は進む。', '診断結果のご提供までは無料',
+            for content in ('まずは無料相談で', '有料の本プログラムに進んだ場合', '相談と結果のお渡しまで無料',
                             '別途有料', 'テスト企業の表示例', '別途月額契約'):
                 self.assertIn(content,reason)
             for image in ('reason-ai-diagnosis-overview-20261110.jpg',
