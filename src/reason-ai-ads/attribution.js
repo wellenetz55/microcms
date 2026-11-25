@@ -17,6 +17,15 @@
     const value = params.get(key);
     if (values.includes(value)) fields[key] = value;
   }
+  const youtube = {
+    utm_source: 'google', utm_medium: 'paid_video',
+    utm_campaign: 'reason_ai_youtube_202612', utm_content: 'longest_customer_44s'
+  };
+  if (Object.entries(youtube).every(([name, value]) => params.get(name) === value)
+      && (path === pages.longest_customer || (path === formPath && params.get('lp_variant') === 'longest_customer'))) {
+    Object.assign(fields, youtube);
+    delete fields.lp_test;
+  }
   const pendingKey = 'wellenetz_ra_receipt_v1';
   const variant = Object.keys(pages).find(key => pages[key] === path);
   if (variant) {
@@ -72,7 +81,10 @@
   // The separate Meta tag already queues Lead; do not send a second Meta event.
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
-  gtag('event', 'reason_ai_diagnosis_complete', {
+  // QA has its own event so that importing the real event cannot count test leads.
+  const eventName = pending.record.tracking_qa === '1'
+    ? 'reason_ai_diagnosis_qa' : 'reason_ai_diagnosis_complete';
+  gtag('event', eventName, {
     ...pending.record, content_name: 'reason_ai_diagnosis', send_to: 'G-9JF0Q28R0W'
   });
 })();
