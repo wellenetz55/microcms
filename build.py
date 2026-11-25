@@ -160,7 +160,7 @@ general_lead='サービスのご相談、取材、講演・研修のご依頼、
 page('/inquiry/','一般お問い合わせ',section(contact_form('general'))+section('<div class="split"><div>'+eyebrow('BY PHONE')+'<h2>お電話でのご相談</h2></div><div><p>東京 '+a('tel:0362627485','03-6262-7485')+'<br>名古屋 '+a('tel:0526849800','052-684-9800')+'</p></div></div>','soft'),en='CONTACT',lead=general_lead,cta=False)
 for id,t in contacttypes:
  page('/inquiry/'+id+'/',t,section(contact_form(id)),en='CONTACT',lead=general_lead,cta=False)
-page('/inquiry/reason-ai/','選ばれる理由AI<br>無料適合診断のご相談',section(contact_form('reason-ai')),en='CONTACT / REASON AI',lead='45分・Zoom面談で、貴社の課題とサービスの適合性を確認します。',cta=False)
+page('/inquiry/reason-ai/','選ばれる理由を探る無料相談',section(contact_form('reason-ai')),en='CONTACT / REASON AI',lead='45分・Zoom面談で、貴社の課題とサービスの適合性を確認します。',cta=False)
 # News and columns have real article detail routes.
 page('/news/','ニュース・お知らせ',section(newsrows(news,'NEWS'))+'<div class="wrap" style="padding-bottom:60px">'+a('https://www.wellenetz.co.jp/news/','過去のニュースを公式サイトで読む','text-link')+'</div>',en='NEWS',lead='ベレネッツの活動や、新しいコンテンツの公開情報をお届けします。')
 page('/column/','視点が変わると、<br>事業が変わる。',section(newsrows(columns,'COLUMN'))+'<div class="wrap" style="padding-bottom:60px">'+a('https://www.wellenetz.co.jp/column/','過去のコラムを公式サイトで読む','text-link')+'</div>',en='INSIGHTS / COLUMN',lead='ブランディングとマーケティングの現場から、企業の可能性を考えるコラム。')
